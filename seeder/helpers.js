@@ -17,7 +17,7 @@ const createRandomProducts = (max) => {
   const productList = [];
 
   for (let i = 1; i <= max; i++) {
-    productList.push([faker.commerce.productName(), getRandomPrice(10, 300), getRandomInt(0, 100), getRandomRating(0, 5, 1), getRandomInt(0, 10), _.shuffle(mockFeatured)[0], _.shuffle([true, false])[0], getRandomInt(3, 10), 'randomURL']);
+    productList.push([faker.commerce.productName(), getRandomPrice(10, 300), getRandomInt(0, 100), getRandomRating(0, 5, 1), _.shuffle(mockThemes)[0], 'some theme url', _.shuffle(mockFeatured)[0], _.shuffle([true, false])[0], getRandomInt(3, 10), 'randomURL']);
   }
   return productList;
 };
@@ -28,7 +28,6 @@ const getRandomRating = (min, max, decimalPlace) => {
   const rating = faker.finance.amount(min, max, decimalPlace);
   return Math.floor(rating) ? rating : 0;
 };
-
 
 module.exports = {
   createRandomStores: createRandomStores,
