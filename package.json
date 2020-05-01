@@ -1,15 +1,17 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "product_component",
+  "version": "1.0.0",
+  "description": "Product component for Lego.com product detail page",
+  "author": "Joey Nguyen",
+  "license": "UNLICENSED",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "faker": "^4.1.0",
+    "mysql": "^2.18.1",
+    "underscore": "^1.10.2"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
