@@ -12,10 +12,6 @@ const createRandomStores = (max) => {
   return storeList;
 };
 
-const createThemes = () => {
-
-}
-
 const createRandomProducts = (max) => {
   const indexes = _.range(1, max + 1);
   const productList = [];
@@ -39,8 +35,3 @@ module.exports = {
   createRandomProducts: createRandomProducts
 }
 
-
-// const productList = indexes.map(index => {
-  //   return [faker.commerce.productName(), getRandomPrice(10, 300), getRandomInt(0, 100), getRandomRating(0, 5, 1), getRandomInt(0, 10), _.shuffle(mockFeatured)[0], _.shuffle([true,false][0]), getRandomInt(3, 10), 'randomURL']
-  // });
-  // return productList;
