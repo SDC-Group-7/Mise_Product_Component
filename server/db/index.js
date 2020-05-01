@@ -3,7 +3,7 @@ const PASSWORD = require('./config.js')
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'student',
-  password: 'student',
+  password: PASSWORD,
   database: 'product_component'
 });
 
