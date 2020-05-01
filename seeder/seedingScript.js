@@ -15,7 +15,7 @@ const insertStores = () => {
 
 const insertProducts = () => {
   const productList = createRandomProducts(10);
-  const query = 'INSERT INTO products (product_name, price, review_count, rating, theme_id, featured, choking_hazard, product_limit, product_image_url) VALUES ?';
+  const query = 'INSERT INTO products (product_name, price, review_count, rating, theme_name, theme_image_url, featured, choking_hazard, product_limit, product_image_url) VALUES ?';
 
   connection.query(query, [productList], (err, result) => {
     if (err) {
@@ -29,8 +29,5 @@ const insertProducts = () => {
 
 insertProducts();
 insertStores();
-// TODO fix schema to include foreign key after creating insertProducts function and clear database
 
-// FOREIGN KEY (theme_id) REFERENCES themes(id)
-// insertStores();
 connection.end();
