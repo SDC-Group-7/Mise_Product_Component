@@ -4,26 +4,19 @@ CREATE DATABASE product_component;
 
 USE product_component;
 
-CREATE TABLE themes (
-  id INT NOT NULL AUTO_INCREMENT,
-  theme_name VARCHAR(255),
-  theme_image_url VARCHAR(255),
-  PRIMARY KEY(id)
-);
-
 CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT,
   product_name VARCHAR(255),
-  price INT NOT NULL,
+  price FLOAT NOT NULL,
   review_count INT NOT NULL,
   rating INT NOT NULL,
-  theme_id INT NOT NULL,
+  theme_name VARCHAR(255),
+  theme_image_url VARCHAR(255),
   featured VARCHAR(255),
   choking_hazard BOOLEAN,
   product_limit INT NOT NULL,
   product_image_url VARCHAR(255),
   PRIMARY KEY(id),
-  FOREIGN KEY (theme_id) REFERENCES themes(id)
 );
 
 CREATE TABLE stores (
