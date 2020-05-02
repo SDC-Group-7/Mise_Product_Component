@@ -1,1 +1,1 @@
-module.exports.PASSWORD = 'FILL_IN'; //Enter your password
+module.exports.PASSWORD = 'FILL_IN'; // Enter your password

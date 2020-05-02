@@ -1,7 +1,7 @@
 const stores = [
   {
     name: 'LEGO Store University Town Center',
-    address: '4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122'
+    address: '4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122',
   },
   {
     name: 'LEGO Store Ontario Mills',
@@ -25,72 +25,70 @@ const stores = [
   },
   {
     name: 'LEGO Store Disneyland Resort',
-    address: 'Downtown Disney District, 1585 S, Disneyland Dr, Anaheim, CA 92802'
+    address: 'Downtown Disney District, 1585 S, Disneyland Dr, Anaheim, CA 92802',
   },
   {
     name: 'LEGO Store South Coast Plaza',
-    address: '3333 Bristol Street South Coast Plaza Space 1042, Costa Mesa, CA 92626'
+    address: '3333 Bristol Street South Coast Plaza Space 1042, Costa Mesa, CA 92626',
   },
   {
     name: 'LEGO Store Glendale Galleria',
-    address: '2130 Glendale Galleria, Glendale, CA 91210'
+    address: '2130 Glendale Galleria, Glendale, CA 91210',
   },
   {
     name: 'LEGO Store Disney Springs',
-    address: '1672 E Buena Vista Dr Marketplace, Lake Buena Vista, FL 32830'
+    address: '1672 E Buena Vista Dr Marketplace, Lake Buena Vista, FL 32830',
   },
   {
     name: 'LEGO Store Stoneridge',
-    address: '1444 Stoneridge Mall Space D117A, Pleasanton, CA 94588'
+    address: '1444 Stoneridge Mall Space D117A, Pleasanton, CA 94588',
   },
   {
     name: 'LEGO Store Hillsdale Shopping Center',
-    address: '341 E Sailer Dr, San Mateo, CA 94403'
+    address: '341 E Sailer Dr, San Mateo, CA 94403',
   },
   {
     name: 'LEGO Store Flatiron District',
-    address: '200 5th Ave, New York, NY 10010'
+    address: '200 5th Ave, New York, NY 10010',
   },
   {
     name: 'LEGO Store Queens Ctr',
-    address: '90-15 Queens Blvd Suite 1076, Flushing, NY 11373'
+    address: '90-15 Queens Blvd Suite 1076, Flushing, NY 11373',
   },
   {
     name: 'LEGO Store Mission Viejo',
-    address: '555 The, Shops At Mission Viejo Space 428B, Mission Viejo, CA 92691'
+    address: '555 The, Shops At Mission Viejo Space 428B, Mission Viejo, CA 92691',
   },
   {
     name: 'LEGO Store San Francisco',
-    address: '865 Market St Space C41, San Francisco, CA 94103'
+    address: '865 Market St Space C41, San Francisco, CA 94103',
   },
   {
     name: 'LEGO Store Westfield Topanga',
-    address: '6600 Topanga Canyon Blvd, Canoga Park, CA 91303'
+    address: '6600 Topanga Canyon Blvd, Canoga Park, CA 91303',
   },
   {
     name: 'LEGO Store Penn Square',
-    address: 'Penn Square Mall, 1901 Northwest Expy Space 1058B, Oklahoma City, OK 73118'
+    address: 'Penn Square Mall, 1901 Northwest Expy Space 1058B, Oklahoma City, OK 73118',
   },
   {
     name: 'LEGO Store Concord Mills',
-    address: '8111 Concord Mills Blvd, Mills #206, Concord, NC 28027'
+    address: '8111 Concord Mills Blvd, Mills #206, Concord, NC 28027',
   },
   {
     name: 'LEGO Store Annapolis',
-    address: '1260 Annapolis Mall Rd, Annapolis, MD 21401'
+    address: '1260 Annapolis Mall Rd, Annapolis, MD 21401',
   },
 ];
 
 const themes = [
-  'LEGO Marvel', 'Star Wars', 'Architecture', 'City', 'Classic', 'DC Super Heroes', 'Harry Potter', 'LEGO Batman', 'Overwatch', 'NINJAGO'
+  'LEGO Marvel', 'Star Wars', 'Architecture', 'City', 'Classic', 'DC Super Heroes', 'Harry Potter', 'LEGO Batman', 'Overwatch', 'NINJAGO',
 ];
 
 const featured = ['New', 'Exclusives', 'Retiring soon', 'Hard to find'];
 
-
-
 module.exports = {
   mockStores: stores,
   mockThemes: themes,
-  mockFeatured: featured
-}
+  mockFeatured: featured,
+};

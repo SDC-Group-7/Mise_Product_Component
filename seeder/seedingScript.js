@@ -1,5 +1,6 @@
-const {connection} = require('../server/db/index.js');
-const {createStoreInventory, createRandomProducts} = require('./helpers.js');
+/* eslint-disable no-console */
+const { connection } = require('../server/db/index.js');
+const { createStoreInventory, createRandomProducts } = require('./helpers.js');
 
 const insertStores = () => {
   const storeList = createStoreInventory(100);
@@ -10,7 +11,7 @@ const insertStores = () => {
       throw err;
     }
     console.log(`Number of records inserted: ${result.affectedRows}`);
-  })
+  });
 };
 
 const insertProducts = () => {
@@ -22,10 +23,8 @@ const insertProducts = () => {
       throw err;
     }
     console.log(`Number of records inserted: ${result.affectedRows}`);
-  })
+  });
 };
-
-
 
 insertProducts();
 insertStores();

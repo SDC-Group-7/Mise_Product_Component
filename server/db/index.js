@@ -1,10 +1,11 @@
 const mysql = require('mysql');
-const {PASSWORD} = require('./config.js')
+const { PASSWORD } = require('./config.js');
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'student',
   password: PASSWORD,
-  database: 'product_component'
+  database: 'product_component',
 });
 
 connection.connect();
