@@ -33,6 +33,7 @@ const init = () => {
     if (err) {
       throw err;
     }
+    connection.end();
   });
 };
 
