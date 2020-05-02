@@ -8,7 +8,8 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed-db": "node ./seeder/seedingScript.js"
+    "seed-db": "node ./seeder/seedingScript.js",
+    "reset-db": "mysql -u student -p <schema.sql"
   },
   "dependencies": {
     "faker": "^4.1.0",
