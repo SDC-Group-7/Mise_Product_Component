@@ -16,7 +16,7 @@ CREATE TABLE products (
   choking_hazard BOOLEAN,
   product_limit INT NOT NULL,
   product_image_url VARCHAR(255),
-  PRIMARY KEY(id),
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE stores (
