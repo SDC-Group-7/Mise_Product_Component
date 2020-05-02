@@ -5,10 +5,10 @@ const { mockStores, mockThemes, mockFeatured } = require('./exampleData.js');
 const createStoreInventory = (max) => {
   const storeList = [];
   for (let i = 0; i < mockStores.length; i += 1) {
-    const { name } = mockStores[i];
-    const { address } = mockStores[i];
+    const { name, address } = mockStores[i];
     for (let j = 1; j <= max; j += 1) {
-      const store = [name, address, j, _.shuffle([true, false])[0]];
+      const productId = j;
+      const store = [name, address, productId, _.shuffle([true, false])[0]];
       storeList.push(store);
     }
   }
