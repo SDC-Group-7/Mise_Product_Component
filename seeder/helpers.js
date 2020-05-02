@@ -26,9 +26,24 @@ const getRandomRating = (min, max, decimalPlace) => {
 
 const createRandomProducts = (max) => {
   const productList = [];
-
   for (let i = 1; i <= max; i += 1) {
-    productList.push([faker.commerce.productName(), getRandomPrice(10, 300), getRandomInt(0, 100), getRandomRating(0, 5, 1), _.shuffle(mockThemes)[0], 'some theme url', _.shuffle(mockFeatured)[0], _.shuffle([true, false])[0], getRandomInt(3, 10), 'randomURL']);
+    const randomFeatured = _.shuffle(mockFeatured)[0];
+    const randomTheme = _.shuffle(mockThemes)[0];
+
+    productList.push(
+      [
+        faker.commerce.productName(),
+        getRandomPrice(10, 300),
+        getRandomInt(0, 100),
+        getRandomRating(0, 5, 1),
+        randomTheme.name,
+        randomTheme.themeURL,
+        randomFeatured,
+        _.shuffle([true, false])[0],
+        getRandomInt(3, 10),
+        randomTheme.productURL,
+      ],
+    );
   }
   return productList;
 };
