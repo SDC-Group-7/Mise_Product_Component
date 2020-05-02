@@ -2,12 +2,15 @@ const {mockStores, mockThemes, mockFeatured} = require('./exampleData.js');
 const _ = require('underscore');
 const faker = require('faker');
 
-const createRandomStores = (max) => {
+const createStoreInventory = (max) => {
   const storeList = [];
-  for (let i = 1; i <= max; i++) {
-    let randomStore = _.shuffle(mockStores)[0];
-    let store = [randomStore.name, randomStore.address, i, _.shuffle([true, false])[0]];
-    storeList.push(store);
+  for (let i = 0; i < mockStores.length; i++) {
+    let name = mockStores[i].name;
+    let address = mockStores[i].address;
+    for (let j = 1; j <= max; j++) {
+      let store = [name, address, j, _.shuffle([true, false])[0]];
+      storeList.push(store);
+    }
   }
   return storeList;
 };
@@ -30,7 +33,8 @@ const getRandomRating = (min, max, decimalPlace) => {
 };
 
 module.exports = {
-  createRandomStores: createRandomStores,
+  createStoreInventory: createStoreInventory,
   createRandomProducts: createRandomProducts
 }
 
+// TODO: Create product URLs in s3 and add to exampleData
