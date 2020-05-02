@@ -9,7 +9,7 @@ CREATE TABLE products (
   product_name VARCHAR(255),
   price FLOAT NOT NULL,
   review_count INT NOT NULL,
-  rating INT NOT NULL,
+  rating FLOAT NOT NULL,
   theme_name VARCHAR(255),
   theme_image_url VARCHAR(255),
   featured VARCHAR(255),
