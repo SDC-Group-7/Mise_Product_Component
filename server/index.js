@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const express = require('express');
-const { connection } = require('../db/index.js');
+const { getProduct, getStores } = require('./controller.js');
 
 const app = express();
 const PORT = 3000;
@@ -11,12 +11,23 @@ app.use((req, res, next) => {
 });
 
 app.get('/product/:id', (req, res) => {
-  connection.query('SELECT * FROM products WHERE id=1', (err, results) => {
+  getProduct(req.params.id, (err, results) => {
     if (err) {
-      console.log(err);
+      res.status(500).send(err);
     }
     res.status(200).send(results);
   });
 });
+
+
+app.get('/product/:id/find-store', (req, res) => {
+  getStores(req.params.id, (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.status(200).send(results);
+  });
+});
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
