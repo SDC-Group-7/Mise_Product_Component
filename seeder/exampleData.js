@@ -82,7 +82,56 @@ const stores = [
 ];
 
 const themes = [
-  'LEGO Marvel', 'Star Wars', 'Architecture', 'City', 'Classic', 'DC Super Heroes', 'Harry Potter', 'LEGO Batman', 'Overwatch', 'NINJAGO',
+  {
+    name: 'LEGO Marvel',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/marvel.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/marvel.png',
+  },
+  {
+    name: 'Star Wars',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/star-wars.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/star-wars.png',
+  },
+  {
+    name: 'Architecture',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/architecture.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/architecture.png',
+  },
+  {
+    name: 'City',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/city.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/city.png',
+  },
+  {
+    name: 'Classic',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/classic.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/classic.png',
+  },
+  {
+    name: 'DC Super Heroes',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/dc.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/dc.png',
+  },
+  {
+    name: 'Jurassic World',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/Jurassic.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/jurassic-world.png',
+  },
+  {
+    name: 'Overwatch',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/overwatch.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/overwatch.png',
+  },
+  {
+    name: 'NINJAGO',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/ninjago.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/ninjago.png',
+  },
+  {
+    name: 'Harry Potter',
+    themeURL: 'https://legofec.s3-us-west-1.amazonaws.com/themes/HarryPotter.png',
+    productURL: 'https://legofec.s3-us-west-1.amazonaws.com/products/harry-potter.png',
+  },
 ];
 
 const featured = ['New', 'Exclusives', 'Retiring soon', 'Hard to find'];
