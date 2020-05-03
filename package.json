@@ -12,7 +12,7 @@
     "reset-db": "mysql -u student -p <schema.sql",
     "start-server": "nodemon ./server/index.js",
     "react-dev": "webpack -w",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "express": "^4.17.1",
