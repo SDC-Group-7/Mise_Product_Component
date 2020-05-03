@@ -5,6 +5,7 @@ const { getProduct, getStores } = require('./controller.js');
 const app = express();
 const PORT = 3000;
 
+app.use(express.static('public'));
 app.use((req, res, next) => {
   console.log(`Incoming ${req.method} request to ${req.path}`);
   next();
