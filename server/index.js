@@ -31,4 +31,8 @@ app.get('/product/:id/find-store', (req, res) => {
 });
 
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+}
+
+module.exports = app;
