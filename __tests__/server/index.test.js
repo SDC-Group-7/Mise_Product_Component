@@ -174,14 +174,8 @@ describe('API tests', () => {
           "product_availability": 0
       }
     ];
-    const store = {
-      "id": 1,
-      "store_name": "LEGO Store University Town Center",
-      "store_address": "4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122",
-      "product_id": 1,
-      "product_availability": 1
-  };
-    const res = await request.get(`/product/${store.product_id}/find-store`);
+
+    const res = await request.get(`/product/${stores[0].product_id}/find-store`);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(stores);
     expect(res.body.length).toEqual(20);
