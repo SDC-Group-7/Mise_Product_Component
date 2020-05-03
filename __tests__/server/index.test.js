@@ -188,4 +188,17 @@ describe('API tests', () => {
     expect(res.body.filter(store => store.product_id === 1).length).toEqual(20);
     done();
   });
+
+  it('should respond with a 404 to a product request if product is not found', async (done) => {
+    const res = await request.get('/product/null');
+    expect(res.statusCode).toEqual(404);
+    done();
+  });
+
+  it('should respond with a 404 to a find-store request if product is not found', async (done) => {
+    const res = await request.get('/product/null/find-store');
+    expect(res.statusCode).toEqual(404);
+    done();
+  });
+
 });
