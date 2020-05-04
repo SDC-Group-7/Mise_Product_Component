@@ -1,5 +1,6 @@
 import React from 'react';
 import BuyNowTab from './BuyNowTab.jsx';
+import CheckStoreTab from './CheckStoreTab.jsx';
 
 const TabList = () => (
   <div>
@@ -12,6 +13,7 @@ const TabList = () => (
       </li>
     </ul>
     <BuyNowTab />
+    <CheckStoreTab />
   </div>
 )
 
