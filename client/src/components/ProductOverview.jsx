@@ -16,8 +16,6 @@ const ProductOverview = () => {
       <TabList />
     </div>
   )
-
-}
-
+};
 
 export default ProductOverview;
