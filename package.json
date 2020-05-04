@@ -12,7 +12,7 @@
     "reset-db": "mysql -u student -p <schema.sql",
     "start-server": "nodemon ./server/index.js",
     "react-dev": "webpack -w",
-    "test": "jest --watchAll"
+    "test": "NODE_ENV=test jest --watchAll"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -21,10 +21,12 @@
     "nodemon": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "supertest": "^4.0.2",
     "underscore": "^1.10.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
@@ -36,6 +38,7 @@
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
@@ -49,6 +52,9 @@
     "presets": [
       "@babel/env",
       "@babel/react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
     ]
   }
 }

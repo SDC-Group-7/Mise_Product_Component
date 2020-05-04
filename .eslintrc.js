@@ -6,6 +6,7 @@ module.exports = {
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:jest/recommended",
         "airbnb"
     ],
     "globals": {
@@ -20,8 +21,16 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
+    "settings": {
+        "import/resolver": {
+            "babel-module": {
+                "extensions": [".js", ".jsx"]
+            }
+        }
+    }
     "rules": {
     }
 };

@@ -15,8 +15,11 @@ app.get('/product/:id', (req, res) => {
   getProduct(req.params.id, (err, results) => {
     if (err) {
       res.status(500).send(err);
+    } else if (!results.length) {
+      res.status(404).send('Oops! Product not found!');
+    } else {
+      res.status(200).send(results);
     }
-    res.status(200).send(results);
   });
 });
 
@@ -25,10 +28,17 @@ app.get('/product/:id/find-store', (req, res) => {
   getStores(req.params.id, (err, results) => {
     if (err) {
       res.status(500).send(err);
+    } else if (!results.length) {
+      res.status(404).send('Oops! Product not found!');
+    } else {
+      res.status(200).send(results);
     }
-    res.status(200).send(results);
   });
 });
 
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+}
+
+module.exports = app;
