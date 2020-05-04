@@ -32,7 +32,7 @@ const ProductOverview = () => {
       <h1>
         <span>${data.price}</span>
       </h1>
-      <SafetyWarning />
+      {data.choking_hazard ? <SafetyWarning /> : null}
       <TabList />
     </div>
   )
