@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewContainer from './ReviewContainer.jsx';
+import SafetyWarning from './SafetyWarning.jsx';
 
 const ProductOverview = () => {
   return (
@@ -10,6 +11,7 @@ const ProductOverview = () => {
         <span>Hogwarts Castle</span>
       </h1>
       <ReviewContainer />
+      <SafetyWarning />
     </div>
   )
 
@@ -24,10 +26,7 @@ const ProductOverview = () => {
 
 
 
-    <div className="safety-warning" style={{display:"flex", textAlign:"left", flexDirection:"row-reverse", alignItems:"center", justifyContent:"space-between", wordBreak:"break-word"}}>
-      <span className="warning-message">Warning!<br/>Choking Hazard.<br/>Small parts.</span>
-      <div className="warning-icon" display="block">This is a warning icon.</div>
-    </div>
+
     <ul className="tab-list" style={{display:"flex", alignItems:"stretch", width:"100%", padding:"0px", margin:"0px"}}>
       <li className="tab" style={{justifyContent:"flex-start", width:"auto", listStyleType:"none"}}>
         <button style={{background:"transparent", boxShadow:"none", cursor:"pointer", borderStyle:"initial"}}>Buy Now</button>
