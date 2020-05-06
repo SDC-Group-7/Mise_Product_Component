@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ReviewContainer from './ReviewContainer.jsx';
-import SafetyWarning from './SafetyWarning.jsx';
-import TabList from './TabList.jsx';
 import axios from 'axios';
+import ReviewContainer from './ReviewContainer';
+import SafetyWarning from './SafetyWarning';
+import TabList from './TabList';
 
 const ProductOverview = () => {
   const [data, setData] = useState({});
@@ -24,18 +24,27 @@ const ProductOverview = () => {
   return (
     <div>
       <span className="featured-badge">{data.featured}</span>
-      <img src={data.theme_image_url} style={{display:"block", height:"auto", maxWidth:"100%", verticalAlign:"middle"}}></img>
+      <img
+        src={data.theme_image_url}
+        alt=""
+        style={{
+          display: 'block', height: 'auto', maxWidth: '100%', verticalAlign: 'middle',
+        }}
+      />
       <h1 className="product-name">
         <span>{data.product_name}</span>
       </h1>
       <ReviewContainer />
       <h1>
-        <span>${data.price}</span>
+        <span>
+          $
+          {data.price}
+        </span>
       </h1>
       {data.choking_hazard ? <SafetyWarning /> : null}
       <TabList />
     </div>
-  )
+  );
 };
 
 export default ProductOverview;
