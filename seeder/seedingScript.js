@@ -4,7 +4,7 @@ const { createStoreInventory, createRandomProducts } = require('./helpers.js');
 
 const insertStores = (callback) => {
   const storeList = createStoreInventory(100);
-  const query = 'INSERT INTO stores (store_name, store_address, product_id, product_availability) VALUES ?';
+  const query = 'INSERT INTO stores (storeName, storeAddress, productId, productAvailability) VALUES ?';
 
   connection.query(query, [storeList], (err, result) => {
     if (err) {
@@ -17,7 +17,7 @@ const insertStores = (callback) => {
 
 const insertProducts = (callback) => {
   const productList = createRandomProducts(100);
-  const query = 'INSERT INTO products (product_name, price, review_count, rating, theme_name, theme_image_url, featured, choking_hazard, product_limit, product_image_url) VALUES ?';
+  const query = 'INSERT INTO products (productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productImageUrl) VALUES ?';
 
   connection.query(query, [productList], (err, result) => {
     if (err) {

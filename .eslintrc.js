@@ -7,7 +7,8 @@ module.exports = {
     "extends": [
         "plugin:react/recommended",
         "plugin:jest/recommended",
-        "airbnb"
+        "airbnb",
+        "airbnb/hooks",
     ],
     "globals": {
         "Atomics": "readonly",
@@ -22,15 +23,15 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "jest"
+        "jest",
     ],
     "settings": {
-        "import/resolver": {
-            "babel-module": {
-                "extensions": [".js", ".jsx"]
-            }
-        }
-    }
+        "import/extensions": [
+            ".js",
+            ".jsx"
+        ]
+    },
     "rules": {
-    }
+        "no-console": "off",
+    },
 };
