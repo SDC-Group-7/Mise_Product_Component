@@ -12,7 +12,7 @@ const getProductData = (id, callback) => {
 };
 
 const getStoreData = (id, callback) => {
-  const query = `SELECT * FROM stores WHERE product_id=${id}`;
+  const query = `SELECT * FROM stores WHERE productId=${id}`;
 
   connection.query(query, (err, results) => {
     if (err) {
