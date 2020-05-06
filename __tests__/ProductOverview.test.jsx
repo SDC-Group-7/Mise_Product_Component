@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProductOverview, { getProduct } from '../client/src/components/ProductOverview';
 import axios from 'axios';
+import ProductOverview, { getProduct } from '../client/src/components/ProductOverview';
 
 jest.mock('axios');
 
@@ -13,9 +13,15 @@ describe('Unit Tests', () => {
 });
 
 describe('Data fetcher', () => {
-  test('should fetch data from database', async () => {
+  test('should fetch data from database on success', async () => {
     const data = { data: [{ chokingHazard: true }] };
     axios.get.mockImplementationOnce(() => Promise.resolve(data));
     await expect(getProduct(1)).resolves.toEqual(data);
+  });
+
+  test('should throw error on failure', async () => {
+    const errorMessage = 'Network Error';
+    axios.get.mockImplementationOnce(() => Promise.reject(new Error(errorMessage)));
+    await expect(getProduct(null)).rejects.toThrow(errorMessage);
   });
 });
