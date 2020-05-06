@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import ReviewContainer from './ReviewContainer';
 import SafetyWarning from './SafetyWarning';
 import TabList from './TabList';
@@ -38,29 +39,58 @@ const ProductOverview = () => {
 
   return (
 
-    <div>
-      <span className="featured-badge">{featured}</span>
-      <img
+    <Container>
+      <FeaturedBadge>{featured}</FeaturedBadge>
+      <ThemeImage
         src={themeImageUrl}
         alt=""
-        style={{
-          display: 'block', height: 'auto', maxWidth: '100%', verticalAlign: 'middle',
-        }}
       />
-      <h1 className="product-name">
-        <span>{productName}</span>
-      </h1>
+      <ProductName>{productName}</ProductName>
       <ReviewContainer reviewCount={reviewCount} rating={rating} />
-      <h1>
-        <span>
-          $
-          {price}
-        </span>
-      </h1>
+      <ProductPrice>{`$${price}`}</ProductPrice>
       {chokingHazard ? <SafetyWarning /> : null}
       <TabList />
-    </div>
+    </Container>
   );
 };
 
 export default ProductOverview;
+
+const Container = styled.div`
+  background: papayawhip;
+  width: 352.797px;
+  height: 617.031px;
+  padding: 18px;
+  font-family: "Cera Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+`;
+
+const FeaturedBadge = styled.span`
+  font-size: .75rem;
+  line-height: 1.1875rem;
+  padding: 0.19rem;
+  background: rgb(255, 207, 0);
+`;
+
+const ThemeImage = styled.img`
+  display: block;
+  heigh: auto;
+  maxWidth: 100%;
+  verticalAlign: middle;
+
+`;
+
+const ProductName = styled.span`
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.6875rem;
+`;
+
+const ProductPrice = styled.span`
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 2.6875rem;
+`;
