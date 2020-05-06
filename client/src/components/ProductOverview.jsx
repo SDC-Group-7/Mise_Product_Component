@@ -4,11 +4,11 @@ import ReviewContainer from './ReviewContainer';
 import SafetyWarning from './SafetyWarning';
 import TabList from './TabList';
 
-const getProduct = async (id) => {
+export const getProduct = async (id) => {
   try {
     return await axios.get(`http://localhost:3000/product/${id}`);
   } catch (error) {
-    return console.error(error);
+    return error;
   }
 };
 
@@ -29,6 +29,9 @@ const ProductOverview = () => {
     getProduct(randomProductId)
       .then(({ data }) => {
         setProductData(data[0]);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

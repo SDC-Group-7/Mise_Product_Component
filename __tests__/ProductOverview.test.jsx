@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ProductOverview from '../client/src/components/ProductOverview';
+import ProductOverview, { getProduct } from '../client/src/components/ProductOverview';
 import axios from 'axios';
-import
 
-jest.mock('axios')
+jest.mock('axios');
 
 describe('Unit Tests', () => {
   test('should render the app component on the screen', () => {
@@ -15,7 +14,8 @@ describe('Unit Tests', () => {
 
 describe('Data fetcher', () => {
   test('should fetch data from database', async () => {
-
-    expect(
-  })
+    const data = { data: [{ chokingHazard: true }] };
+    axios.get.mockImplementationOnce(() => Promise.resolve(data));
+    await expect(getProduct(1)).resolves.toEqual(data);
+  });
 });
