@@ -8,7 +8,7 @@ export const getProduct = async (id) => {
   try {
     return await axios.get(`http://localhost:3000/product/${id}`);
   } catch (error) {
-    return error;
+    throw new Error(error);
   }
 };
 
@@ -31,7 +31,7 @@ const ProductOverview = () => {
         setProductData(data[0]);
       })
       .catch((error) => {
-        console.error(error);
+        throw new Error(error);
       });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
