@@ -15,16 +15,17 @@ describe('API tests', () => {
   it('should get a product from the database', async (done) => {
     const product = {
       id: 1,
-      productName: 'Unbranded Frozen Cheese',
-      price: 139.99,
-      reviewCount: 1,
-      rating: 3.3,
-      themeName: 'Classic',
-      themeImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/themes/classic.png',
+      productName: 'Gorgeous Cotton Gloves',
+      price: 12.99,
+      reviewCount: 90,
+      rating: 0,
+      themeName: 'Overwatch',
+      themeImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/themes/overwatch.png',
       featured: 'Retiring soon',
-      chokingHazard: 0,
+      chokingHazard: 1,
       productLimit: 4,
-      productImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/products/classic.png',
+      productImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/products/overwatch.png',
+      productAvailabilityOnline: 0,
     };
     const res = await request.get(`/product/${product.id}`);
     expect(res.statusCode).toEqual(200);
@@ -39,28 +40,28 @@ describe('API tests', () => {
         storeName: 'LEGO Store University Town Center',
         storeAddress: '4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
       {
         id: 101,
         storeName: 'LEGO Store Ontario Mills',
         storeAddress: '1 Mills Cir #631, Ontario, CA 91764',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 201,
         storeName: 'LEGO Store Fashion Valley',
         storeAddress: 'Fashion Valley, 7007 Friars Rd Space 965A, San Diego, CA 92108',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 301,
         storeName: 'LEGOLAND California Hotel LEGO Gift Shop',
         storeAddress: '5885 The Crossings Dr, Carlsbad, CA 92008',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 401,
@@ -81,7 +82,7 @@ describe('API tests', () => {
         storeName: 'LEGO Store Disneyland Resort',
         storeAddress: 'Downtown Disney District, 1585 S, Disneyland Dr, Anaheim, CA 92802',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 701,
@@ -109,7 +110,7 @@ describe('API tests', () => {
         storeName: 'LEGO Store Stoneridge',
         storeAddress: '1444 Stoneridge Mall Space D117A, Pleasanton, CA 94588',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1101,
@@ -123,7 +124,7 @@ describe('API tests', () => {
         storeName: 'LEGO Store Flatiron District',
         storeAddress: '200 5th Ave, New York, NY 10010',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1301,
@@ -151,28 +152,28 @@ describe('API tests', () => {
         storeName: 'LEGO Store Westfield Topanga',
         storeAddress: '6600 Topanga Canyon Blvd, Canoga Park, CA 91303',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1701,
         storeName: 'LEGO Store Penn Square',
         storeAddress: 'Penn Square Mall, 1901 Northwest Expy Space 1058B, Oklahoma City, OK 73118',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1801,
         storeName: 'LEGO Store Concord Mills',
         storeAddress: '8111 Concord Mills Blvd, Mills #206, Concord, NC 28027',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1901,
         storeName: 'LEGO Store Annapolis',
         storeAddress: '1260 Annapolis Mall Rd, Annapolis, MD 21401',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
     ];
 
