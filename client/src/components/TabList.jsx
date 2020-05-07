@@ -32,13 +32,11 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => (
         </button>
       </li>
     </ul>
-    {productAvailabilityOnline ? (
-      <BuyNowTab
-        productLimit={productLimit}
-        productAvailabilityOnline={productAvailabilityOnline}
-        themeName={themeName}
-      />
-    ) : 'Temporarily out of stock'}
+    <BuyNowTab
+      productLimit={productLimit}
+      productAvailabilityOnline={productAvailabilityOnline}
+      themeName={themeName}
+    />
     <CheckStoreTab />
   </div>
 );
