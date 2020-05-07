@@ -1,26 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import QuantityToggler from './QuantityToggler';
 import AddToCartButton from './AddToCartButton';
 
-const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => (
+const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const handleCartAddClick = () => {
+    setCartQuantity(cartQuantity + 1);
+  };
 
-  <div className="buyNow-tab">
-    <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
-    <div>{productAvailabilityOnline ? <QuantityToggler /> : null}</div>
-    <div>{productAvailabilityOnline ? `Limit ${productLimit}` : null}</div>
-    <div>{productAvailabilityOnline ? <AddToCartButton /> : null}</div>
-    <div>
-      <button type="submit">Add to Wishlist</button>
+  return (
+    <div className="buyNow-tab">
+      <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
+      <div>
+        {productAvailabilityOnline && cartQuantity < productLimit
+          ? <QuantityToggler />
+          : null}
+      </div>
+      <div>
+        {productAvailabilityOnline && cartQuantity < productLimit
+          ? `Limit ${productLimit}`
+          : null}
+      </div>
+      <div>
+        <AddToCartButton
+          productLimit={productLimit}
+          handleCartAddClick={handleCartAddClick}
+          cartQuantity={cartQuantity}
+        />
+      </div>
+      <div>
+        <button type="submit">Add to Wishlist</button>
+      </div>
+      <div>
+        Shop more like this:
+      </div>
+      <div>
+        {themeName}
+      </div>
     </div>
-    <div>
-      Shop more like this:
-    </div>
-    <div>
-      {themeName}
-    </div>
-  </div>
-);
+  );
+};
 
 BuyNowTab.propTypes = {
   productLimit: PropTypes.number,
