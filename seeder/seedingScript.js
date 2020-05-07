@@ -17,7 +17,7 @@ const insertStores = (callback) => {
 
 const insertProducts = (callback) => {
   const productList = createRandomProducts(100);
-  const query = 'INSERT INTO products (productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productImageUrl) VALUES ?';
+  const query = 'INSERT INTO products (productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productImageUrl, productAvailabilityOnline) VALUES ?';
 
   connection.query(query, [productList], (err, result) => {
     if (err) {
