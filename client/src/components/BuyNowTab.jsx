@@ -1,20 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import QuantityToggler from './QuantityToggler';
+import AddToCartButton from './AddToCartButton';
 
-const BuyNowTab = () => (
+const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => (
+
   <div className="buyNow-tab">
+    <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
+    <div>{productAvailabilityOnline ? <QuantityToggler /> : null}</div>
+    <div>{productAvailabilityOnline ? `Limit ${productLimit}` : null}</div>
+    <div>{productAvailabilityOnline ? <AddToCartButton /> : null}</div>
     <div>
-      This is a quantity bar
+      <button type="submit">Add to Wishlist</button>
     </div>
     <div>
-      Limit 3
+      Shop more like this:
     </div>
     <div>
-      <button>Add to Bag</button>
-    </div>
-    <div>
-      <button>Add to Wishlist</button>
+      {themeName}
     </div>
   </div>
 );
+
+BuyNowTab.propTypes = {
+  productLimit: PropTypes.number,
+  productAvailabilityOnline: PropTypes.bool,
+  themeName: PropTypes.string,
+};
+
+BuyNowTab.defaultProps = {
+  productLimit: 3,
+  productAvailabilityOnline: true,
+  themeName: '',
+};
+
 
 export default BuyNowTab;

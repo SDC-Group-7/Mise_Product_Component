@@ -29,7 +29,6 @@ const createRandomProducts = (max) => {
   for (let i = 1; i <= max; i += 1) {
     const randomFeatured = _.shuffle(mockFeatured)[0];
     const randomTheme = _.shuffle(mockThemes)[0];
-
     productList.push(
       [
         faker.commerce.productName(),
@@ -42,6 +41,7 @@ const createRandomProducts = (max) => {
         _.shuffle([true, false])[0],
         getRandomInt(3, 10),
         randomTheme.productURL,
+        _.shuffle([true, false])[0],
       ],
     );
   }

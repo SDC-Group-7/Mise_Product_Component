@@ -17,13 +17,17 @@ const ProductOverview = () => {
   const [productData, setProductData] = useState({});
   const randomProductId = Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1) + 1)) + 1;
   const {
-    featured,
-    themeImageUrl,
     productName,
     price,
-    chokingHazard,
     reviewCount,
     rating,
+    themeName,
+    themeImageUrl,
+    featured,
+    chokingHazard,
+    productLimit,
+    productImageUrl,
+    productAvailabilityOnline,
   } = productData;
 
   useEffect(() => {
@@ -46,10 +50,18 @@ const ProductOverview = () => {
         alt=""
       />
       <ProductName>{productName}</ProductName>
-      <ReviewContainer reviewCount={reviewCount} rating={rating} />
+      <ReviewContainer
+        reviewCount={reviewCount}
+        rating={rating}
+        productImageUrl={productImageUrl}
+      />
       <ProductPrice>{`$${price}`}</ProductPrice>
       {chokingHazard ? <SafetyWarning /> : null}
-      <TabList />
+      <TabList
+        productLimit={productLimit}
+        productAvailabilityOnline={productAvailabilityOnline}
+        themeName={themeName}
+      />
     </Container>
   );
 };

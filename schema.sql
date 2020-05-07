@@ -16,6 +16,7 @@ CREATE TABLE products (
   chokingHazard BOOLEAN,
   productLimit INT NOT NULL,
   productImageUrl VARCHAR(255),
+  productAvailabilityOnline BOOLEAN,
   PRIMARY KEY(id)
 );
 
