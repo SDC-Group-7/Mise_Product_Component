@@ -42,4 +42,20 @@ describe('Quantity Toggler', () => {
       expect(wrapper.find('[data-test=3]').length).toEqual(0);
     });
   });
+
+  describe('Button disabling', () => {
+    test('should disable decrease button if quantity equals 1', () => {
+      const wrapper = shallow(<QuantityToggler
+        quantity={1}
+      />);
+      expect(wrapper.find('[data-test="decrease"]').prop('disabled')).toBe(true);
+    });
+    test('should disable increase button if quantity equals product limit', () => {
+      const wrapper = shallow(<QuantityToggler
+        quantity={3}
+        productLimit={3}
+      />);
+      expect(wrapper.find('[data-test="increase"]').prop('disabled')).toBe(true);
+    });
+  });
 });
