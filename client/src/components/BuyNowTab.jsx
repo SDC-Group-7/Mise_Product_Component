@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import QuantityToggler from './QuantityToggler';
 import AddToCartButton from './AddToCartButton';
 import AddToWishlistButton from './AddToWishlistButton';
 
-const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
-  const [cartQuantity, setCartQuantity] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
-  const handleChange = (newQuantity) => setQuantity(newQuantity);
+const BuyNowTab = (props) => {
+  const {
+    productLimit,
+    productAvailabilityOnline,
+    themeName,
+    cartQuantity,
+    handleCartAddClick,
+    quantity,
+    handleChange,
+  } = props;
 
   return (
-    <div data-test={cartQuantity}>
+    <div data-cartquantity={cartQuantity}>
       <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
       {productAvailabilityOnline && cartQuantity < productLimit
         ? (
@@ -47,14 +52,22 @@ const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
 
 BuyNowTab.propTypes = {
   productLimit: PropTypes.number,
-  productAvailabilityOnline: PropTypes.bool,
+  cartQuantity: PropTypes.number,
+  quantity: PropTypes.number,
   themeName: PropTypes.string,
+  productAvailabilityOnline: PropTypes.bool,
+  handleCartAddClick: PropTypes.func,
+  handleChange: PropTypes.func,
 };
 
 BuyNowTab.defaultProps = {
   productLimit: 3,
-  productAvailabilityOnline: true,
+  cartQuantity: 1,
+  quantity: 1,
   themeName: '',
+  productAvailabilityOnline: true,
+  handleCartAddClick: () => {},
+  handleChange: () => {},
 };
 
 

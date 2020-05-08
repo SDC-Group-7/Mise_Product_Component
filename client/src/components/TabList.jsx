@@ -7,6 +7,10 @@ import CheckStoreTab from './CheckStoreTab';
 const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const [tab, setTab] = useState(true);
   const handleClick = () => setTab(!tab);
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
+  const [quantity, setQuantity] = useState(1);
+  const handleChange = (newQuantity) => setQuantity(newQuantity);
 
   return (
     <div>
@@ -21,9 +25,14 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
       {tab
         ? (
           <BuyNowTab
+            // cartQuantity passed in as prop
+            cartQuantity={cartQuantity}
+            handleCartAddClick={handleCartAddClick}
             productLimit={productLimit}
             productAvailabilityOnline={productAvailabilityOnline}
             themeName={themeName}
+            handleChange={handleChange}
+            quantity={quantity}
           />
         )
         : <CheckStoreTab />}

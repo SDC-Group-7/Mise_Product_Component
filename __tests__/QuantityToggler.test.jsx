@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import QuantityToggler from '../client/src/components/QuantityToggler';
-import BuyNowTab from '../client/src/components/BuyNowTab';
+import TabList from '../client/src/components/TabList';
 
 describe('Quantity Toggler', () => {
   describe('Input quantity', () => {
@@ -9,7 +9,7 @@ describe('Quantity Toggler', () => {
     beforeEach(() => {
       const fakePropValue = true;
       wrapper = mount(
-        <BuyNowTab
+        <TabList
           productAvailabilityOnline={fakePropValue}
           productLimit={7}
         />,
@@ -38,8 +38,8 @@ describe('Quantity Toggler', () => {
     test('should add input quantity to cart quantity when add to cart button is clicked', () => {
       wrapper.find('[data-test="input"]').first().simulate('change', { target: { value: 5 } });
       wrapper.find('[data-test="addToCart"]').first().simulate('click');
-      expect(wrapper.find('[data-test=5]').length).toBeTruthy();
-      expect(wrapper.find('[data-test=3]').length).toEqual(0);
+      expect(wrapper.find('[data-cartquantity=5]').length).toBeTruthy();
+      expect(wrapper.find('[data-cartquantity=3]').length).toEqual(0);
     });
   });
 
