@@ -6,18 +6,22 @@ import AddToWishlistButton from './AddToWishlistButton';
 
 const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const [cartQuantity, setCartQuantity] = useState(0);
-  const handleCartAddClick = () => {
-    setCartQuantity(cartQuantity + 1);
-  };
+  const [quantity, setQuantity] = useState(1);
+  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
+  const handleChange = (newQuantity) => setQuantity(newQuantity);
 
   return (
-    <div className="buyNow-tab">
+    <div data-test={cartQuantity}>
       <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
       {productAvailabilityOnline && cartQuantity < productLimit
         ? (
           <>
             <div>
-              <QuantityToggler />
+              <QuantityToggler
+                productLimit={productLimit}
+                quantity={quantity}
+                onChange={handleChange}
+              />
             </div>
             <div>
               {`Limit ${productLimit}`}
