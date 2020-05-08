@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const QuantityToggler = () => (
-  <Container>
-    <LeftButton />
-    <Input value={1} />
-    <RightButton />
-  </Container>
-);
+const QuantityToggler = () => {
+  const [quantity, setQuantity] = useState(1);
+  const handleChange = (e) => setQuantity(e.target.value);
+
+  return (
+    <Container>
+      <LeftButton />
+      <Input value={quantity} onChange={handleChange} />
+      <RightButton />
+    </Container>
+  );
+};
 
 export default QuantityToggler;
 
