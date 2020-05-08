@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import QuantityToggler from '../client/src/components/QuantityToggler';
-import BuyNowTab from '../client/src/components/BuyNowTab';
+import TabList from '../client/src/components/TabList';
 
 describe('Quantity Toggler', () => {
   describe('Input quantity', () => {
@@ -9,7 +9,7 @@ describe('Quantity Toggler', () => {
     beforeEach(() => {
       const fakePropValue = true;
       wrapper = mount(
-        <BuyNowTab
+        <TabList
           productAvailabilityOnline={fakePropValue}
           productLimit={7}
         />,
