@@ -16,7 +16,7 @@ const BuyNowTab = (props) => {
   } = props;
 
   return (
-    <div data-test={cartQuantity}>
+    <div data-cartquantity={cartQuantity}>
       <div>{productAvailabilityOnline ? 'Available now' : 'Temporarily out of stock'}</div>
       {productAvailabilityOnline && cartQuantity < productLimit
         ? (
