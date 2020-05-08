@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import TabList from '../client/src/components/TabList';
 import BuyNowTab from '../client/src/components/BuyNowTab';
 import CheckStoreTab from '../client/src/components/CheckStoreTab';
@@ -18,5 +18,14 @@ describe('TabList', () => {
     wrapper.find('.CheckStore').simulate('click');
     expect(wrapper.find(BuyNowTab).length).toBe(0);
     expect(wrapper.find(CheckStoreTab).length).toBe(1);
+  });
+
+  test('Buy Now tab should maintain cart data between tab switches', () => {
+    const wrapper = mount(<TabList productLimit={5} />);
+    wrapper.find('[data-test="addToCart"]').first().simulate('click');
+    expect(wrapper.find('[data-cartquantity=1]').length).toEqual(1);
+    wrapper.find('.CheckStore').first().simulate('click');
+    wrapper.find('.BuyNow').first().simulate('click');
+    expect(wrapper.find('[data-cartquantity=1]').length).toEqual(1);
   });
 });
