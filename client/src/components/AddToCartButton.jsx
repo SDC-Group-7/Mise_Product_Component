@@ -11,8 +11,6 @@ const AddToCartButton = ({ productLimit, handleCartAddClick, cartQuantity }) => 
     ) : <LimitedButton data-test="limitExceed">Limit exceeded</LimitedButton>
 );
 
-export default AddToCartButton;
-
 AddToCartButton.propTypes = {
   productLimit: PropTypes.number,
   cartQuantity: PropTypes.number,
@@ -24,6 +22,9 @@ AddToCartButton.defaultProps = {
   cartQuantity: 0,
   handleCartAddClick: () => {},
 };
+
+export default AddToCartButton;
+
 
 const Button = styled.button`
   text-align: center;

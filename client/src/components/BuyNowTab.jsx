@@ -7,9 +7,7 @@ import AddToWishlistButton from './AddToWishlistButton';
 const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const handleCartAddClick = () => {
-    setCartQuantity(cartQuantity + quantity);
-  };
+  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
   const handleChange = (newQuantity) => setQuantity(newQuantity);
 
   return (
