@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import QuantityToggler from './QuantityToggler';
 import AddToCartButton from './AddToCartButton';
+import AddToWishlistButton from './AddToWishlistButton';
 
 const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const [cartQuantity, setCartQuantity] = useState(0);
@@ -33,9 +34,7 @@ const BuyNowTab = ({ productLimit, productAvailabilityOnline, themeName }) => {
           />
         </div>
       ) : null}
-      <div>
-        <button type="submit">Add to Wishlist</button>
-      </div>
+      <AddToWishlistButton />
       <div>Shop more like this:</div>
       <div>{themeName}</div>
     </div>
