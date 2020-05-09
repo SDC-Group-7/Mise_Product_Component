@@ -13,6 +13,7 @@ const BuyNowTab = (props) => {
     handleCartAddClick,
     quantity,
     handleChange,
+    handleBlur,
   } = props;
 
   return (
@@ -26,6 +27,7 @@ const BuyNowTab = (props) => {
                 productLimit={productLimit}
                 quantity={quantity}
                 onChange={handleChange}
+                onBlur={handleBlur}
               />
             </div>
             <div>
@@ -58,6 +60,7 @@ BuyNowTab.propTypes = {
   productAvailabilityOnline: PropTypes.bool,
   handleCartAddClick: PropTypes.func,
   handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
 };
 
 BuyNowTab.defaultProps = {
@@ -68,6 +71,7 @@ BuyNowTab.defaultProps = {
   productAvailabilityOnline: true,
   handleCartAddClick: () => {},
   handleChange: () => {},
+  handleBlur: () => {},
 };
 
 

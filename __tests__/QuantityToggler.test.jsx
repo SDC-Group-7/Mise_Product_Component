@@ -21,6 +21,22 @@ describe('Quantity Toggler', () => {
       expect(wrapper.find('[value=3]').length).toEqual(0);
     });
 
+    test('should change input to 1 if input value is less than 1', () => {
+      wrapper.find('[data-test="input"]').first().simulate('focus');
+      wrapper.find('[data-test="input"]').first().simulate('change', { target: { value: -1 } });
+      wrapper.find('[data-test="input"]').first().simulate('blur');
+      expect(wrapper.find('[value=1]').length).toBeTruthy();
+      expect(wrapper.find('[value=-1]').length).toEqual(0);
+    });
+
+    test('should change input to the difference of cart quantity and limit if input value is greater than limit', () => {
+      wrapper.find('[data-test="input"]').first().simulate('focus');
+      wrapper.find('[data-test="input"]').first().simulate('change', { target: { value: 10 } });
+      wrapper.find('[data-test="input"]').first().simulate('blur');
+      expect(wrapper.find('[value=7]').length).toBeTruthy();
+      expect(wrapper.find('[value=10]').length).toEqual(0);
+    });
+
     test('should increase input quantity by 1 when increase button is clicked', () => {
       wrapper.find('[data-test="increase"]').first().simulate('click');
       expect(wrapper.find('[value=2]').length).toBeTruthy();

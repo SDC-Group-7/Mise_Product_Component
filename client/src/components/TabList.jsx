@@ -6,11 +6,18 @@ import CheckStoreTab from './CheckStoreTab';
 
 const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const [tab, setTab] = useState(true);
-  const handleClick = () => setTab(!tab);
   const [cartQuantity, setCartQuantity] = useState(0);
-  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
   const [quantity, setQuantity] = useState(1);
+  const handleClick = () => setTab(!tab);
+  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
   const handleChange = (newQuantity) => setQuantity(newQuantity);
+  const handleBlur = (newQuantity) => {
+    if (newQuantity < 1) {
+      setQuantity(1);
+    } else if (newQuantity > productLimit) {
+      setQuantity(productLimit - cartQuantity);
+    }
+  };
 
   return (
     <div>
@@ -25,7 +32,6 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
       {tab
         ? (
           <BuyNowTab
-            // cartQuantity passed in as prop
             cartQuantity={cartQuantity}
             handleCartAddClick={handleCartAddClick}
             productLimit={productLimit}
@@ -33,6 +39,7 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
             themeName={themeName}
             handleChange={handleChange}
             quantity={quantity}
+            handleBlur={handleBlur}
           />
         )
         : <CheckStoreTab />}
