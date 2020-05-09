@@ -11,7 +11,13 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
   const handleClick = () => setTab(!tab);
   const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
   const handleChange = (newQuantity) => setQuantity(newQuantity);
-  const handleBlur = (newQuantity) => newQuantity < 1 && setQuantity(1);
+  const handleBlur = (newQuantity) => {
+    if (newQuantity < 1) {
+      setQuantity(1);
+    } else if (newQuantity > productLimit) {
+      setQuantity(productLimit - cartQuantity);
+    }
+  };
 
   return (
     <div>
