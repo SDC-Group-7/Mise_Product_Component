@@ -12,7 +12,7 @@ const BuyNowTab = (props) => {
     cartQuantity,
     handleCartAddClick,
     quantity,
-    handleChange,
+    handleChangeQuantity,
     handleBlur,
   } = props;
 
@@ -26,7 +26,7 @@ const BuyNowTab = (props) => {
               <QuantityToggler
                 productLimit={productLimit}
                 quantity={quantity}
-                onChange={handleChange}
+                onChange={handleChangeQuantity}
                 onBlur={handleBlur}
               />
             </div>
@@ -57,9 +57,9 @@ BuyNowTab.propTypes = {
   cartQuantity: PropTypes.number,
   quantity: PropTypes.number,
   themeName: PropTypes.string,
-  productAvailabilityOnline: PropTypes.bool,
+  productAvailabilityOnline: PropTypes.number,
   handleCartAddClick: PropTypes.func,
-  handleChange: PropTypes.func,
+  handleChangeQuantity: PropTypes.func,
   handleBlur: PropTypes.func,
 };
 
@@ -68,9 +68,9 @@ BuyNowTab.defaultProps = {
   cartQuantity: 1,
   quantity: 1,
   themeName: '',
-  productAvailabilityOnline: true,
+  productAvailabilityOnline: 1,
   handleCartAddClick: () => {},
-  handleChange: () => {},
+  handleChangeQuantity: () => {},
   handleBlur: () => {},
 };
 

@@ -1,54 +1,40 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import PropTypes from 'prop-types';
 import StoreSearchForm from './StoreSearchForm';
 import StoresContainer from './StoresContainer';
 
-const CheckStoreTab = ({ productId }) => {
-  const [stores, setStores] = useState([]);
-  const [query, setQuery] = useState('');
-  const [hasSearched, setHasSearched] = useState(false);
-
-  const handleChange = (e) => setQuery(e.target.value);
-  const getStores = async (id, searchQuery) => {
-    try {
-      return await axios.get(`http://localhost:3000/product/${id}/find-store?q=${searchQuery}`);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getStores(productId, query)
-      .then(({ data }) => {
-        setStores(data);
-        setHasSearched(true);
-      })
-      .catch((error) => {
-        const errorCode = error.message.split(' ').pop();
-        if (errorCode === '404') {
-          setStores([]);
-          setHasSearched(true);
-          console.log('Oops! Product not found.');
-        } else {
-          console.log(error.message);
-        }
-      });
-  };
+const CheckStoreTab = (props) => {
+  const {
+    stores, query, handleChangeQuery, handleSubmitQuery, hasSearched,
+  } = props;
 
   return (
     hasSearched
       ? <StoresContainer stores={stores} />
-      : <StoreSearchForm query={query} handleChange={handleChange} handleSubmit={handleSubmit} />
+      : (
+        <StoreSearchForm
+          query={query}
+          handleChangeQuery={handleChangeQuery}
+          handleSubmitQuery={handleSubmitQuery}
+        />
+      )
   );
 };
 
 CheckStoreTab.propTypes = {
-  productId: PropTypes.number,
+  stores: PropTypes.arrayOf(PropTypes.object),
+  query: PropTypes.string,
+  hasSearched: PropTypes.bool,
+  handleChangeQuery: PropTypes.func,
+  handleSubmitQuery: PropTypes.func,
 };
 
 CheckStoreTab.defaultProps = {
-  productId: 1,
+  stores: [],
+  query: '',
+  hasSearched: false,
+  handleChangeQuery: () => {},
+  handleSubmitQuery: () => {},
 };
 
 export default CheckStoreTab;

@@ -30,7 +30,7 @@ app.get('/product/:id/find-store', (req, res) => {
     if (err) {
       res.status(500).send(err);
     } else if (!results.length) {
-      res.status(404).send('Oops! Product not found!');
+      res.status(404).send('Store not found');
     } else {
       res.status(200).send(results);
     }
