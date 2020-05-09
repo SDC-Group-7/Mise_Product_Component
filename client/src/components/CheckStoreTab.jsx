@@ -1,43 +1,45 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
-const getStores = async (id, query) => {
-  try {
-    return await axios.get(`http://localhost:3000/product/${id}/find-store?q=${query}`);
-  } catch (error) {
-    throw new Error(error);
-  }
-};
+import StoreSearchForm from './StoreSearchForm';
+import StoresContainer from './StoresContainer';
 
 const CheckStoreTab = ({ productId }) => {
   const [stores, setStores] = useState([]);
   const [query, setQuery] = useState('');
+  const [hasSearched, setHasSearched] = useState(false);
+
   const handleChange = (e) => setQuery(e.target.value);
+  const getStores = async (id, searchQuery) => {
+    try {
+      return await axios.get(`http://localhost:3000/product/${id}/find-store?q=${searchQuery}`);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Clicked!');
     getStores(productId, query)
       .then(({ data }) => {
-        console.log(data);
         setStores(data);
+        setHasSearched(true);
       })
       .catch((error) => {
-        throw new Error(error);
+        const errorCode = error.message.split(' ').pop();
+        if (errorCode === '404') {
+          setStores([]);
+          setHasSearched(true);
+          console.log('Oops! Product not found.');
+        } else {
+          console.log(error.message);
+        }
       });
   };
 
   return (
-    <div>
-      <p>Enter your address to find a store near you.</p>
-      <form tabIndex="-1" onSubmit={handleSubmit}>
-        <input type="text" value={query} onChange={handleChange} />
-        <span tabIndex="-1">
-          Enter a city and state or zip code
-        </span>
-        <button name="searchStore" type="submit">Click me</button>
-      </form>
-    </div>
+    hasSearched
+      ? <StoresContainer stores={stores} />
+      : <StoreSearchForm query={query} handleChange={handleChange} handleSubmit={handleSubmit} />
   );
 };
 
