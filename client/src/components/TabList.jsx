@@ -83,7 +83,6 @@ const TabList = (props) => {
         )
         : (
           <CheckStoreTab
-            productId={productId}
             stores={stores}
             query={query}
             hasSearched={hasSearched}

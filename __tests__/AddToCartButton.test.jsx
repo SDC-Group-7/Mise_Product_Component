@@ -6,7 +6,7 @@ import QuantityToggler from '../client/src/components/QuantityToggler';
 
 describe('AddToCartButton', () => {
   test('should remove components except add to cart button when cart limit is reached', () => {
-    const fakeBoolean = true;
+    const fakeBoolean = 1;
     const wrapper = mount(<TabList productLimit={1} productAvailabilityOnline={fakeBoolean} />);
 
     wrapper.find('[data-test="addToCart"]').first().simulate('click');
@@ -16,7 +16,7 @@ describe('AddToCartButton', () => {
   });
 
   test('should show components if cart limit is not reached', () => {
-    const fakeBoolean = true;
+    const fakeBoolean = 1;
     const wrapper = mount(<TabList productLimit={5} productAvailabilityOnline={fakeBoolean} />);
 
     wrapper.find('[data-test="addToCart"]').first().simulate('click');
@@ -27,7 +27,7 @@ describe('AddToCartButton', () => {
   });
 
   test('should render the limit exceeded button when limit is reached', () => {
-    const fakeBoolean = true;
+    const fakeBoolean = 1;
     const wrapper = mount(<TabList productLimit={1} productAvailabilityOnline={fakeBoolean} />);
 
     wrapper.find('[data-test="addToCart"]').first().simulate('click');
