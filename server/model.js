@@ -11,8 +11,8 @@ const getProductData = (id, callback) => {
   });
 };
 
-const getStoreData = (id, callback) => {
-  const query = `SELECT * FROM stores WHERE productId=${id}`;
+const getStoreData = (id, searchQuery, callback) => {
+  const query = `SELECT * FROM stores WHERE (productId=${id} AND storeAddress LIKE '%${searchQuery}%')`;
 
   connection.query(query, (err, results) => {
     if (err) {

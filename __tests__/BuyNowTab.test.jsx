@@ -6,7 +6,7 @@ import AddToCartButton from '../client/src/components/AddToCartButton';
 
 describe('BuyNowTab', () => {
   test('should render tab if product is available online', () => {
-    const fakePropValue = true;
+    const fakePropValue = 1;
 
     const wrapper = shallow(<BuyNowTab
       productAvailabilityOnline={fakePropValue}
@@ -19,7 +19,7 @@ describe('BuyNowTab', () => {
   });
 
   test('should display out of stock message if product is unavailable online', () => {
-    const fakePropValue = false;
+    const fakePropValue = 0;
 
     const wrapper = shallow(<BuyNowTab productAvailabilityOnline={fakePropValue} />);
     expect(wrapper.contains('Temporarily out of stock')).toBe(true);

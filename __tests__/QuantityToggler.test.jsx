@@ -7,7 +7,7 @@ describe('Quantity Toggler', () => {
   describe('Input quantity', () => {
     let wrapper;
     beforeEach(() => {
-      const fakePropValue = true;
+      const fakePropValue = 1;
       wrapper = mount(
         <TabList
           productAvailabilityOnline={fakePropValue}

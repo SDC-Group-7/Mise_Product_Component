@@ -6,6 +6,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.static('public'));
+app.use(express.json());
 // app.use((req, res, next) => {
 //   console.log(`Incoming ${req.method} request to ${req.path}`);
 //   next();
@@ -25,11 +26,11 @@ app.get('/product/:id', (req, res) => {
 
 
 app.get('/product/:id/find-store', (req, res) => {
-  getStores(req.params.id, (err, results) => {
+  getStores(req.params.id, req.query.q, (err, results) => {
     if (err) {
       res.status(500).send(err);
     } else if (!results.length) {
-      res.status(404).send('Oops! Product not found!');
+      res.status(404).send('Store not found');
     } else {
       res.status(200).send(results);
     }
