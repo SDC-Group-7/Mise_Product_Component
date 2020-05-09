@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import BuyNowTab from './BuyNowTab';
 import CheckStoreTab from './CheckStoreTab';
 
-const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
+const TabList = (props) => {
+  const {
+    productLimit, productAvailabilityOnline, themeName, productId,
+  } = props;
   const [tab, setTab] = useState(true);
   const [cartQuantity, setCartQuantity] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -42,7 +45,7 @@ const TabList = ({ productLimit, productAvailabilityOnline, themeName }) => {
             handleBlur={handleBlur}
           />
         )
-        : <CheckStoreTab />}
+        : <CheckStoreTab productId={productId} />}
     </div>
   );
 };
@@ -72,12 +75,14 @@ TabList.propTypes = {
   productLimit: PropTypes.number,
   productAvailabilityOnline: PropTypes.bool,
   themeName: PropTypes.string,
+  productId: PropTypes.number,
 };
 
 TabList.defaultProps = {
   productLimit: 3,
   productAvailabilityOnline: true,
   themeName: '',
+  productId: 1,
 };
 
 export default TabList;

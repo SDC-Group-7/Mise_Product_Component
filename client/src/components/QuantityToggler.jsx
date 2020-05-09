@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const QuantityToggler = ({
-  productLimit, quantity, onChange, onBlur,
-}) => {
+const QuantityToggler = (props) => {
+  const {
+    productLimit, quantity, onChange, onBlur,
+  } = props;
   const handleChange = (e) => onChange(e.target.value);
   const handleDecrease = () => onChange(quantity - 1);
   const handleIncrease = () => onChange(quantity + 1);
@@ -12,9 +13,25 @@ const QuantityToggler = ({
 
   return (
     <Container>
-      <DecreaseButton data-test="decrease" onClick={handleDecrease} disabled={quantity === 1} />
-      <Input type="num" data-test="input" min="1" max={productLimit} value={quantity} onChange={handleChange} onBlur={handleBlur} />
-      <IncreaseButton data-test="increase" onClick={handleIncrease} disabled={quantity === productLimit} />
+      <DecreaseButton
+        data-test="decrease"
+        onClick={handleDecrease}
+        disabled={quantity === 1}
+      />
+      <Input
+        type="num"
+        data-test="input"
+        min="1"
+        max={productLimit}
+        value={quantity}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      <IncreaseButton
+        data-test="increase"
+        onClick={handleIncrease}
+        disabled={quantity === productLimit}
+      />
     </Container>
   );
 };

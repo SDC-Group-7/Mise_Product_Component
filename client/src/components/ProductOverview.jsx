@@ -17,6 +17,7 @@ const ProductOverview = () => {
   const [productData, setProductData] = useState({});
   const randomProductId = Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1) + 1)) + 1;
   const {
+    id,
     productName,
     price,
     reviewCount,
@@ -61,6 +62,7 @@ const ProductOverview = () => {
         productLimit={productLimit}
         productAvailabilityOnline={productAvailabilityOnline}
         themeName={themeName}
+        productId={id}
       />
     </Container>
   );
