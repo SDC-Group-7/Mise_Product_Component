@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const QuantityToggler = ({ productLimit, quantity, onChange, onBlur }) => {
+const QuantityToggler = ({
+  productLimit, quantity, onChange, onBlur,
+}) => {
   const handleChange = (e) => onChange(e.target.value);
   const handleDecrease = () => onChange(quantity - 1);
   const handleIncrease = () => onChange(quantity + 1);
@@ -21,12 +23,14 @@ QuantityToggler.propTypes = {
   productLimit: PropTypes.number,
   quantity: PropTypes.number,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
 };
 
 QuantityToggler.defaultProps = {
   productLimit: 3,
   quantity: 1,
   onChange: () => {},
+  onBlur: () => {},
 };
 
 export default QuantityToggler;

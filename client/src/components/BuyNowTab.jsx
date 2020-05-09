@@ -60,6 +60,7 @@ BuyNowTab.propTypes = {
   productAvailabilityOnline: PropTypes.bool,
   handleCartAddClick: PropTypes.func,
   handleChange: PropTypes.func,
+  handleBlur: PropTypes.func,
 };
 
 BuyNowTab.defaultProps = {
@@ -70,6 +71,7 @@ BuyNowTab.defaultProps = {
   productAvailabilityOnline: true,
   handleCartAddClick: () => {},
   handleChange: () => {},
+  handleBlur: () => {},
 };
 
 
