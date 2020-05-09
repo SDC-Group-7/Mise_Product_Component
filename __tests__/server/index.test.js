@@ -64,20 +64,6 @@ describe('API tests', () => {
         productAvailability: 1,
       },
       {
-        id: 401,
-        storeName: 'LEGO Store NorthPark Center',
-        storeAddress: '8687 N Central Expy #770, Dallas, TX 75225',
-        productId: 1,
-        productAvailability: 1,
-      },
-      {
-        id: 501,
-        storeName: 'LEGO Store Arrowhead Towne Ctr',
-        storeAddress: 'Arrowhead Towne Ctr, 7700 W Arrowhead Towne Center Space 1109, Glendale, AZ 85308',
-        productId: 1,
-        productAvailability: 1,
-      },
-      {
         id: 601,
         storeName: 'LEGO Store Disneyland Resort',
         storeAddress: 'Downtown Disney District, 1585 S, Disneyland Dr, Anaheim, CA 92802',
@@ -99,13 +85,6 @@ describe('API tests', () => {
         productAvailability: 0,
       },
       {
-        id: 901,
-        storeName: 'LEGO Store Disney Springs',
-        storeAddress: '1672 E Buena Vista Dr Marketplace, Lake Buena Vista, FL 32830',
-        productId: 1,
-        productAvailability: 0,
-      },
-      {
         id: 1001,
         storeName: 'LEGO Store Stoneridge',
         storeAddress: '1444 Stoneridge Mall Space D117A, Pleasanton, CA 94588',
@@ -116,20 +95,6 @@ describe('API tests', () => {
         id: 1101,
         storeName: 'LEGO Store Hillsdale Shopping Center',
         storeAddress: '341 E Sailer Dr, San Mateo, CA 94403',
-        productId: 1,
-        productAvailability: 0,
-      },
-      {
-        id: 1201,
-        storeName: 'LEGO Store Flatiron District',
-        storeAddress: '200 5th Ave, New York, NY 10010',
-        productId: 1,
-        productAvailability: 1,
-      },
-      {
-        id: 1301,
-        storeName: 'LEGO Store Queens Ctr',
-        storeAddress: '90-15 Queens Blvd Suite 1076, Flushing, NY 11373',
         productId: 1,
         productAvailability: 0,
       },
@@ -154,34 +119,13 @@ describe('API tests', () => {
         productId: 1,
         productAvailability: 1,
       },
-      {
-        id: 1701,
-        storeName: 'LEGO Store Penn Square',
-        storeAddress: 'Penn Square Mall, 1901 Northwest Expy Space 1058B, Oklahoma City, OK 73118',
-        productId: 1,
-        productAvailability: 1,
-      },
-      {
-        id: 1801,
-        storeName: 'LEGO Store Concord Mills',
-        storeAddress: '8111 Concord Mills Blvd, Mills #206, Concord, NC 28027',
-        productId: 1,
-        productAvailability: 1,
-      },
-      {
-        id: 1901,
-        storeName: 'LEGO Store Annapolis',
-        storeAddress: '1260 Annapolis Mall Rd, Annapolis, MD 21401',
-        productId: 1,
-        productAvailability: 0,
-      },
     ];
 
-    const res = await request.get(`/product/${stores[0].productId}/find-store`);
+    const res = await request.get(`/product/${stores[0].productId}/find-store?q=CA`);
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(stores);
-    expect(res.body.length).toEqual(20);
-    expect(res.body.filter((store) => store.productId === 1).length).toEqual(20);
+    expect(res.body.length).toEqual(12);
+    expect(res.body.filter((store) => store.productId === 1).length).toEqual(12);
     done();
   });
 
