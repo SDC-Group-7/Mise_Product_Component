@@ -13,6 +13,7 @@ const BuyNowTab = (props) => {
     handleCartAddClick,
     quantity,
     handleChange,
+    handleBlur,
   } = props;
 
   return (
@@ -26,6 +27,7 @@ const BuyNowTab = (props) => {
                 productLimit={productLimit}
                 quantity={quantity}
                 onChange={handleChange}
+                onBlur={handleBlur}
               />
             </div>
             <div>

@@ -21,6 +21,14 @@ describe('Quantity Toggler', () => {
       expect(wrapper.find('[value=3]').length).toEqual(0);
     });
 
+    test('should change input to 1 on blur if input value is less than 1', () => {
+      wrapper.find('[data-test="input"]').first().simulate('focus');
+      wrapper.find('[data-test="input"]').first().simulate('change', { target: { value: -1 } });
+      wrapper.find('[data-test="input"]').first().simulate('blur');
+      expect(wrapper.find('[value=1]').length).toBeTruthy();
+      expect(wrapper.find('[value=-1]').length).toEqual(0);
+    });
+
     test('should increase input quantity by 1 when increase button is clicked', () => {
       wrapper.find('[data-test="increase"]').first().simulate('click');
       expect(wrapper.find('[value=2]').length).toBeTruthy();
