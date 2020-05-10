@@ -1,7 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const ReviewContainer = () => (
-  <div title="4.8" className="rating-review" style={{display:"flex", flexWrap:"wrap",}}>
+  <Container title="4.8" className="rating-review">
       <div type="stars" className="star" style={{width:"1.25rem", height:"1.25rem", margin:".38rem"}}>
         <svg width="20" height="20" viewBox="0 0 50 49">
           <g stroke="none" strokeWidth="1" style={{fill:"rgb(255, 213, 0)", alignItems:"center"}}>
@@ -42,9 +43,36 @@ const ReviewContainer = () => (
           </g>
         </svg>
       </div>
-    <button kind="ghost" type="submit" style={{display:"inline-block", borderColor:"transparent", borderRadius:"4px", borderCollapse:"collapse", color:"rgb(0, 109, 183)", fontWeight:"500", fontSize:"0.875rem", lineHeight:"1.1875rem", cursor:"pointer"}}>200 Reviews</button>
-    <button kind="ghost" type="submit" style={{display:"inline-block", borderColor:"transparent", borderRadius:"4px", borderCollapse:"collapse", color:"rgb(0, 109, 183)", fontWeight:"500", fontSize:"0.875rem", lineHeight:"1.1875rem", cursor:"pointer"}}>Submit Review</button>
-  </div>
-)
+    <Button kind="ghost" type="submit">200 Reviews</Button>
+    <Button kind="ghost" type="submit">Submit Review</Button>
+  </Container>
+);
 
 export default ReviewContainer;
+
+const Container = styled.div`
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  margin-left: -1.25rem;
+  width: calc(100% + 1.25rem);
+`;
+
+const Button = styled.button`
+  display: inline-block;
+  width: auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+  color: rgb(0, 109, 183);
+  padding: 0.9375rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: transparent;
+  cursor: pointer;
+`;

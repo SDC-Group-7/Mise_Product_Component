@@ -59,14 +59,14 @@ const TabList = (props) => {
   };
 
   return (
-    <div>
+    <>
       <Tabs>
-        <Tab>
+        <BuyNowButtonContainer>
           <TabButton className="BuyNow" onClick={tab ? null : handleTabClick}>Buy Now</TabButton>
-        </Tab>
-        <Tab>
+        </BuyNowButtonContainer>
+        <CheckStoreButtonContainer>
           <TabButton className="CheckStore" onClick={tab ? handleTabClick : null}>Check Store Stock</TabButton>
-        </Tab>
+        </CheckStoreButtonContainer>
       </Tabs>
       {tab
         ? (
@@ -90,29 +90,20 @@ const TabList = (props) => {
             handleSubmitQuery={handleSubmitQuery}
           />
         )}
-    </div>
+    </>
   );
 };
 
 const Tabs = styled.ul`
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
 `;
 
-const Tab = styled.li`
-  justifyContent: flex-start;
-  width: auto;
-  list-style-type: none;
+const CheckStoreButtonContainer = styled.li`
+`;
+
+const BuyNowButtonContainer = styled.li`
 `;
 
 const TabButton = styled.button`
-  background: transparent;
-  box-shadow: none;
-  cursor: pointer;
-  border-style: initial;
 `;
 
 TabList.propTypes = {

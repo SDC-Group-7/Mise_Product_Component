@@ -53,8 +53,10 @@ QuantityToggler.defaultProps = {
 export default QuantityToggler;
 
 const Container = styled.div`
-  display: flex;
 `;
-const Input = styled.input``;
-const DecreaseButton = styled.button``;
-const IncreaseButton = styled.button``;
+const Input = styled.input`
+`;
+const DecreaseButton = styled.button`
+`;
+const IncreaseButton = styled.button`
+`;

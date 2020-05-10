@@ -34,10 +34,10 @@ describe('TabList', () => {
   test('Buy Now tab should maintain cart data between tab switches', () => {
     const wrapper = mount(<TabList productLimit={5} />);
     wrapper.find('[data-test="addToCart"]').first().simulate('click');
-    expect(wrapper.find('[data-cartquantity=1]').length).toEqual(1);
+    expect(wrapper.find('[data-cartquantity=1]').length).toBeTruthy();
     wrapper.find('.CheckStore').first().simulate('click');
     wrapper.find('.BuyNow').first().simulate('click');
-    expect(wrapper.find('[data-cartquantity=1]').length).toEqual(1);
+    expect(wrapper.find('[data-cartquantity=1]').length).toBeTruthy();
   });
 
   test('Check Store tab should stay in searched state between tab switches', async () => {
