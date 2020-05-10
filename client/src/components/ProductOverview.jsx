@@ -45,12 +45,18 @@ const ProductOverview = () => {
   return (
 
     <Container>
-      <FeaturedBadge>{featured}</FeaturedBadge>
+      <BadgeWrapper>
+        <BadgeContainer>
+          <FeaturedBadge>{featured}</FeaturedBadge>
+        </BadgeContainer>
+      </BadgeWrapper>
       <ThemeImage
         src={themeImageUrl}
         alt=""
       />
+      <Spacer />
       <ProductName>{productName}</ProductName>
+      <Spacer />
       <ReviewContainer
         reviewCount={reviewCount}
         rating={rating}
@@ -71,15 +77,32 @@ const ProductOverview = () => {
 export default ProductOverview;
 
 const Container = styled.div`
-  background: papayawhip;
-  width: 352.797px;
-  height: 617.031px;
-  padding: 18px;
-  font-family: "Cera Pro", sans-serif;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  font-family: "Cera Pro", sans-serif;
   align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  padding: 1.125rem;
+  border: 1px solid rgb(224, 224, 224);
+  @media screen and (max-width: 1201px) {
+    width: 30%;
+  };
+  @media screen and (min-width: 901px) {
+    flex: 0 0 30%;
+  };
+`;
+
+const BadgeWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.3125rem;
+`;
+
+const BadgeContainer = styled.div`
+  display: inline-block;
+  margin-right: 0.27rem;
 `;
 
 const FeaturedBadge = styled.span`
@@ -107,4 +130,9 @@ const ProductPrice = styled.span`
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.6875rem;
+`;
+
+const Spacer = styled.div`
+  display: block;
+  padding: 0px 0px 1.25rem;
 `;
