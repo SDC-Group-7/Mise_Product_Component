@@ -27,4 +27,5 @@ dist/
 # mySQL password
 config.js
 
+# bundle
 bundle.js
