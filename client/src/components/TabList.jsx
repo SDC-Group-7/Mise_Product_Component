@@ -16,8 +16,7 @@ const TabList = (props) => {
   const [query, setQuery] = useState('');
   const [hasSearched, setHasSearched] = useState(false);
 
-  const handleBuyNowTabClick = () => setTab(true);
-  const handleStoreTabClick = () => setTab(false);
+  const handleTabClick = () => setTab(!tab);
 
   const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
 
@@ -63,10 +62,10 @@ const TabList = (props) => {
     <div>
       <Tabs>
         <Tab>
-          <TabButton className="BuyNow" onClick={handleBuyNowTabClick}>Buy Now</TabButton>
+          <TabButton className="BuyNow" onClick={tab ? null : handleTabClick}>Buy Now</TabButton>
         </Tab>
         <Tab>
-          <TabButton className="CheckStore" onClick={handleStoreTabClick}>Check Store Stock</TabButton>
+          <TabButton className="CheckStore" onClick={tab ? handleTabClick : null}>Check Store Stock</TabButton>
         </Tab>
       </Tabs>
       {tab
