@@ -182,6 +182,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./client/src/components/StoreInfo.jsx":
+/*!*********************************************!*\
+  !*** ./client/src/components/StoreInfo.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\n\nvar StoreInfo = function StoreInfo(_ref) {\n  var store = _ref.store;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"This is a store\");\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (StoreInfo);\n\n//# sourceURL=webpack:///./client/src/components/StoreInfo.jsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/StoreSearchForm.jsx":
 /*!***************************************************!*\
   !*** ./client/src/components/StoreSearchForm.jsx ***!
@@ -202,7 +214,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar StoresContainer = function StoresContainer(_ref) {\n  var stores = _ref.stores;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, \"This is where the stores container will be\");\n};\n\nStoresContainer.propTypes = {\n  stores: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object)\n};\nStoresContainer.defaultProps = {\n  stores: []\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (StoresContainer);\n\n//# sourceURL=webpack:///./client/src/components/StoresContainer.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _StoreInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StoreInfo */ \"./client/src/components/StoreInfo.jsx\");\n\n\n\n\nvar StoresContainer = function StoresContainer(_ref) {\n  var stores = _ref.stores;\n  return stores.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StoreInfo__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    store: stores[0]\n  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", {\n    \"data-test\": \"noStore\"\n  }, \"No stores found within a 60-mile radius of your zip code\");\n};\n\nStoresContainer.propTypes = {\n  stores: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object)\n};\nStoresContainer.defaultProps = {\n  stores: []\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (StoresContainer);\n\n//# sourceURL=webpack:///./client/src/components/StoresContainer.jsx?");
 
 /***/ }),
 
