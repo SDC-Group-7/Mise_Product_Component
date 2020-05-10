@@ -6,12 +6,14 @@ const StoreInfo = ({ store }) => {
 
   return (
     <Container>
-      <Availability>{productAvailability ? 'Y' : 'X'}</Availability>
+      <Availability data-test="availability">
+        {productAvailability ? 'Y' : 'X'}
+      </Availability>
       <Info>
-        <StoreName>{storeName}</StoreName>
-        <StoreAddress>{storeAddress}</StoreAddress>
+        <StoreName data-test="storeName">{storeName}</StoreName>
+        <StoreAddress data-test="storeAddress">{storeAddress}</StoreAddress>
       </Info>
-      <Distance>2.2 mi</Distance>
+      <Distance data-test="distance">2.2 mi</Distance>
     </Container>
   );
 };
