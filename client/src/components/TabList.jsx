@@ -16,6 +16,8 @@ const TabList = (props) => {
   const [query, setQuery] = useState('');
   const [hasSearched, setHasSearched] = useState(false);
 
+  const handleChangeStore = () => setHasSearched(false);
+
   const handleTabClick = () => setTab(!tab);
 
   const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
@@ -45,6 +47,7 @@ const TabList = (props) => {
       .then(({ data }) => {
         setStores(data);
         setHasSearched(true);
+        setQuery('');
       })
       .catch((error) => {
         const errorCode = error.message.split(' ').pop();
@@ -88,6 +91,7 @@ const TabList = (props) => {
             hasSearched={hasSearched}
             handleChangeQuery={handleChangeQuery}
             handleSubmitQuery={handleSubmitQuery}
+            handleChangeStore={handleChangeStore}
           />
         )}
     </>

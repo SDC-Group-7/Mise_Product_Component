@@ -5,12 +5,12 @@ import StoresContainer from './StoresContainer';
 
 const CheckStoreTab = (props) => {
   const {
-    stores, query, handleChangeQuery, handleSubmitQuery, hasSearched,
+    stores, query, handleChangeQuery, handleSubmitQuery, hasSearched, handleChangeStore,
   } = props;
 
   return (
     hasSearched
-      ? <StoresContainer stores={stores} />
+      ? <StoresContainer stores={stores} handleChangeStore={handleChangeStore} />
       : (
         <StoreSearchForm
           query={query}
@@ -27,6 +27,7 @@ CheckStoreTab.propTypes = {
   hasSearched: PropTypes.bool,
   handleChangeQuery: PropTypes.func,
   handleSubmitQuery: PropTypes.func,
+  handleChangeStore: PropTypes.func,
 };
 
 CheckStoreTab.defaultProps = {
@@ -35,6 +36,7 @@ CheckStoreTab.defaultProps = {
   hasSearched: false,
   handleChangeQuery: () => {},
   handleSubmitQuery: () => {},
+  handleChangeStore: () => {},
 };
 
 export default CheckStoreTab;
