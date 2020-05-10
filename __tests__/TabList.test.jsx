@@ -21,6 +21,16 @@ describe('TabList', () => {
     expect(wrapper.find(BuyNowTab).exists()).toBe(false);
   });
 
+  test('should display the Check Store tab when you click the button twice', () => {
+    const wrapper = shallow(<TabList />);
+    wrapper.find('.CheckStore').simulate('click');
+    expect(wrapper.find(CheckStoreTab).exists()).toBe(true);
+    expect(wrapper.find(BuyNowTab).exists()).toBe(false);
+    wrapper.find('.CheckStore').simulate('click');
+    expect(wrapper.find(CheckStoreTab).exists()).toBe(true);
+    expect(wrapper.find(BuyNowTab).exists()).toBe(false);
+  });
+
   test('Buy Now tab should maintain cart data between tab switches', () => {
     const wrapper = mount(<TabList productLimit={5} />);
     wrapper.find('[data-test="addToCart"]').first().simulate('click');

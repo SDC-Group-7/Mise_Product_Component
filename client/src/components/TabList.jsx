@@ -62,10 +62,10 @@ const TabList = (props) => {
     <div>
       <Tabs>
         <Tab>
-          <TabButton className="BuyNow" onClick={handleTabClick}>Buy Now</TabButton>
+          <TabButton className="BuyNow" onClick={tab ? null : handleTabClick}>Buy Now</TabButton>
         </Tab>
         <Tab>
-          <TabButton className="CheckStore" onClick={handleTabClick}>Check Store Stock</TabButton>
+          <TabButton className="CheckStore" onClick={tab ? handleTabClick : null}>Check Store Stock</TabButton>
         </Tab>
       </Tabs>
       {tab
