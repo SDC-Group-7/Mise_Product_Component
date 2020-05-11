@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StoreListItem = ({ store }) => {
-  const { storeName, productAvailability } = store;
+const StoreListItem = ({ store, index, changeStore }) => {
+  const { storeName, productAvailability, id } = store;
 
   return (
     <Container>
-      <Availability data-test="availability">
+      <Availability data-test="availability" id={index} onClick={changeStore}>
         {productAvailability ? 'Y' : 'X'}
       </Availability>
       <Info>
-        <StoreName data-test="storeName">{storeName}</StoreName>
+        <StoreName data-test="storeName" id={index} onClick={changeStore}>{storeName}</StoreName>
       </Info>
-      <Distance data-test="distance">2.2 mi</Distance>
+      <Distance data-test="distance" id={index} onClick={changeStore}>{`${id} mi`}</Distance>
     </Container>
   );
 };

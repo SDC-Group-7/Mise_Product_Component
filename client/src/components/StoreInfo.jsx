@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StoreInfo = ({ store }) => {
-  const { storeName, storeAddress, productAvailability } = store;
+  const { storeName, storeAddress, productAvailability, id} = store;
 
   return (
     <Container>
@@ -13,7 +13,7 @@ const StoreInfo = ({ store }) => {
         <StoreName data-test="storeName">{storeName}</StoreName>
         <StoreAddress data-test="storeAddress">{storeAddress}</StoreAddress>
       </Info>
-      <Distance data-test="distance">2.2 mi</Distance>
+      <Distance data-test="distance">{`${id} mi`}</Distance>
     </Container>
   );
 };

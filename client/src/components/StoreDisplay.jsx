@@ -5,9 +5,13 @@ import StoreListItem from './StoreListItem';
 
 const StoreDisplay = ({ stores }) => {
   const [listActive, setListActive] = useState(false);
+  const [selectedStore, setSelectedStore] = useState(stores[0]);
+
   const clickListHandler = () => setListActive(!listActive);
-  const closestStoresList = stores.map((store) => (
-    <StoreListItem store={store} />
+  const changeStore = (e) => setSelectedStore(stores[Number(e.target.id)]);
+
+  const closestStoresList = stores.map((store, index) => (
+    <StoreListItem store={store} index={index} changeStore={changeStore} />
   ));
 
   return (
@@ -15,16 +19,16 @@ const StoreDisplay = ({ stores }) => {
       <StoreListDropDown>
         <SelectStoreButton data-test="selectStore" tabIndex={0} onClick={clickListHandler}>
           <StyledSpan>Select a Store</StyledSpan>
-          <span>{stores[0].storeName}</span>
+          <span>{selectedStore.storeName}</span>
         </SelectStoreButton>
         {listActive
           ? (
             <DropDownContent>
-              {closestStoresList.slice(0, 3)}
+              {closestStoresList.slice(1, 4)}
             </DropDownContent>
           ) : null}
       </StoreListDropDown>
-      <StoreInfo store={stores[0]} />
+      <StoreInfo store={selectedStore} />
     </Container>
   );
 };
