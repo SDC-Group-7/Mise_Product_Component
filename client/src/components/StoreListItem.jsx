@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StoreInfo = ({ store }) => {
-  const { storeName, storeAddress, productAvailability } = store;
+const StoreListItem = ({ store }) => {
+  const { storeName, productAvailability } = store;
 
   return (
     <Container>
@@ -11,21 +11,24 @@ const StoreInfo = ({ store }) => {
       </Availability>
       <Info>
         <StoreName data-test="storeName">{storeName}</StoreName>
-        <StoreAddress data-test="storeAddress">{storeAddress}</StoreAddress>
       </Info>
       <Distance data-test="distance">2.2 mi</Distance>
     </Container>
   );
 };
 
-export default StoreInfo;
+export default StoreListItem;
 
 const Container = styled.div`
   display: flex;
-  padding-top: 1.125rem;
-  padding-bottom: 1.125rem;
-  margin-bottom: 1.125rem;
-  border-bottom: 1px solid rgb(224, 224, 224);
+  align-items: center;
+  height: 2.25rem;
+  padding: 0.9rem 1.125rem;
+  border-width: 1px;
+  border-style: solid solid solid;
+  border-color: rgb(224, 224, 224) rgb(224, 224, 224) rgb(224, 224, 224);
+  border-top: 0px;
+  background: rgb(255, 255, 255);
 `;
 
 const Info = styled.div`
@@ -37,13 +40,6 @@ const Info = styled.div`
 
 const StoreName = styled.div`
   font-weight: 500;
-`;
-
-const StoreAddress = styled.div`
-  color: rgb(117, 117, 117);
-  margin-bottom: 0.625rem;
-  font-size: 0.9375rem;
-  max-width: 9.375rem;
 `;
 
 const Distance = styled.div`

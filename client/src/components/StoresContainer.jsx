@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StoreInfo from './StoreInfo';
+import styled from 'styled-components';
+import StoreDisplay from './StoreDisplay';
 import StoreInfoHeader from './StoreInfoHeader';
 
 const StoresContainer = ({ stores, handleChangeStore }) => (
   <>
     <StoreInfoHeader handleChangeStore={handleChangeStore} />
     {stores.length
-      ? <StoreInfo store={stores[0]} />
+      ? <StoreDisplay stores={stores} />
       : <div data-test="noStore">No stores found within a 60-mile radius of your zip code</div>}
   </>
 );

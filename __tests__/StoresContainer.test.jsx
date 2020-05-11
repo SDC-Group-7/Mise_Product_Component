@@ -1,19 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import StoresContainer from '../client/src/components/StoresContainer';
-import StoreInfo from '../client/src/components/StoreInfo';
+import StoreDisplay from '../client/src/components/StoreDisplay';
+import StoreInfoHeader from '../client/src/components/StoreInfoHeader';
 
 describe('Stores Container', () => {
-  test('it should render a store', () => {
-    const stores = [{
-      storeName: 'LEGO Store University Town Center',
-      storeAddress: '4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122',
-      productAvailability: true,
-    }];
+  test('it should render the Store Display if there are stores', () => {
+    const stores = [{ storeData: 'fakeData' }];
 
     const wrapper = shallow(<StoresContainer stores={stores} />);
 
-    expect(wrapper.find(StoreInfo).exists()).toBe(true);
+    expect(wrapper.find(StoreDisplay).exists()).toBe(true);
   });
 
   test('it should display a message if there are no stores', () => {
@@ -22,5 +19,10 @@ describe('Stores Container', () => {
     const wrapper = shallow(<StoresContainer stores={stores} />);
 
     expect(wrapper.find('[data-test="noStore"]').exists()).toBe(true);
+  });
+
+  test('it should render the StoreInfoHeader', () => {
+    const wrapper = shallow(<StoresContainer />);
+    expect(wrapper.find(StoreInfoHeader).exists()).toBe(true);
   });
 });
