@@ -5,12 +5,27 @@ import StoreListItem from './StoreListItem';
 
 const StoreDisplay = ({ stores }) => {
   const [listActive, setListActive] = useState(false);
+  const [storesList, setStoresList] = useState(stores);
   const [selectedStore, setSelectedStore] = useState(stores[0]);
 
   const clickListHandler = () => setListActive(!listActive);
-  const changeStore = (e) => setSelectedStore(stores[Number(e.target.id)]);
+  const reorderStores = (storeId, oldStore) => {
+    const reorderedList = storesList;
 
-  const closestStoresList = stores.map((store, index) => (
+    reorderedList.splice(storeId, 1);
+    reorderedList.push(oldStore);
+    reorderedList.sort((a, b) => ((a.id > b.id) ? 1 : -1));
+
+    setStoresList(reorderedList);
+  };
+  const changeStore = (e) => {
+    const currentStore = selectedStore;
+    setSelectedStore(storesList[Number(e.target.id)]);
+    setListActive(false);
+    reorderStores(Number(e.target.id), currentStore);
+  };
+
+  const closestStoresList = storesList.map((store, index) => (
     <StoreListItem store={store} index={index} changeStore={changeStore} />
   ));
 
