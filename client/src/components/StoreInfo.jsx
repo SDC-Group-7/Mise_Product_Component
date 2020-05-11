@@ -49,6 +49,11 @@ const StoreAddress = styled.div`
 const Distance = styled.div`
   white-space: nowrap;
   font-weight: 700;
+  padding-left: .25rem;
+  padding-right: .25rem;
 `;
 
-const Availability = styled.div``;
+const Availability = styled.div`
+  padding-left: .25rem;
+  padding-right: .25rem;
+`;

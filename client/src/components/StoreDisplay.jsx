@@ -54,21 +54,25 @@ const Container = styled.div`
   padding-top: 1.125rem;
 `;
 
-const DropDownContent = styled.div`
-  position: absolute;
-  width: 100%;
-  top: 100%;
-  box-shadow: rgb(224, 224, 224) 0px 0.3125rem 0.75rem 0px;
-  cursor: pointer;
-`;
-
-
 const StoreListDropDown = styled.div`
   position: relative;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(224, 224, 224);
   cursor: pointer;
+`;
+
+const DropDownContent = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  box-shadow: rgb(224, 224, 224) 0px 0.3125rem 0.75rem 0px;
+  cursor: pointer;
+  padding-top: .09rem;
+  &:active ${StoreListDropDown} {
+    box-shadow: rgb(224, 224, 224) 0px 0.3125rem 0.75rem 0px;
+    border-color: blue;
+  };
 `;
 
 const SelectStoreButton = styled.div`
