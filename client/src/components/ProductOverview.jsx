@@ -62,8 +62,8 @@ const ProductOverview = () => {
         rating={rating}
         productImageUrl={productImageUrl}
       />
-      <ProductPrice>{`$${price}`}</ProductPrice>
       {chokingHazard ? <SafetyWarning /> : null}
+      <ProductPrice>{`$${price}`}</ProductPrice>
       <TabList
         productLimit={productLimit}
         productAvailabilityOnline={productAvailabilityOnline}
@@ -83,12 +83,16 @@ const Container = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   background: rgb(255, 255, 255);
-  padding: 1.125rem;
+  padding: 18px;
   border: 1px solid rgb(224, 224, 224);
-  @media screen and (max-width: 1201px) {
+  max-width: 352.797px;
+  min-width: 250px;
+  line-height: 1.5;
+  text-size-adjust: 100%;
+  @media screen and (min-width: 250px) {
     width: 30%;
   };
-  @media screen and (min-width: 901px) {
+  @media screen and (max-width: 352.797px) {
     flex: 0 0 30%;
   };
 `;

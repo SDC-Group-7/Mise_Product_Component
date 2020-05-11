@@ -22,6 +22,7 @@ export default StoreInfo;
 
 const Container = styled.div`
   display: flex;
+  padding-top: 1.125rem;
   padding-bottom: 1.125rem;
   margin-bottom: 1.125rem;
   border-bottom: 1px solid rgb(224, 224, 224);

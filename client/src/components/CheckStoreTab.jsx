@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import StoreSearchForm from './StoreSearchForm';
 import StoresContainer from './StoresContainer';
 
@@ -9,15 +10,17 @@ const CheckStoreTab = (props) => {
   } = props;
 
   return (
-    hasSearched
-      ? <StoresContainer stores={stores} handleChangeStore={handleChangeStore} />
-      : (
-        <StoreSearchForm
-          query={query}
-          handleChangeQuery={handleChangeQuery}
-          handleSubmitQuery={handleSubmitQuery}
-        />
-      )
+    <Container>
+      {hasSearched
+        ? <StoresContainer stores={stores} handleChangeStore={handleChangeStore} />
+        : (
+          <StoreSearchForm
+            query={query}
+            handleChangeQuery={handleChangeQuery}
+            handleSubmitQuery={handleSubmitQuery}
+          />
+        )}
+    </Container>
   );
 };
 
@@ -40,3 +43,12 @@ CheckStoreTab.defaultProps = {
 };
 
 export default CheckStoreTab;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 1.125rem;
+  border-top: 1px solid rgb(224, 224, 224);
+`;

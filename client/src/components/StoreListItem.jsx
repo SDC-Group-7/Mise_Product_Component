@@ -22,14 +22,11 @@ export default StoreListItem;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 3.75rem;
-  user-select: none;
-  padding: 0.75rem 1.125rem;
-  border-width: 0px 1px 1px;
+  height: 2.25rem;
+  padding: 0.9rem 1.125rem;
+  border-width: 1px;
   border-style: solid solid solid;
   border-color: rgb(224, 224, 224) rgb(224, 224, 224) rgb(224, 224, 224);
-  border-image: initial;
   border-top: 0px;
   background: rgb(255, 255, 255);
 `;
