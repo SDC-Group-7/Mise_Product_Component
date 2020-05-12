@@ -26,7 +26,7 @@ describe('Store Display', () => {
   });
 
   test('it should render 3 store list items after clicking select store button', () => {
-    const stores = [{ fakeData: 'fakeData' }, { fakeData: 'fakeData' }, { fakeData: 'fakeData' }];
+    const stores = [{ fakeData: 'fakeData' }, { fakeData: 'fakeData' }, { fakeData: 'fakeData' }, { fakeData: 'fakeData' }];
 
     const wrapper = shallow(<StoreDisplay stores={stores} />);
 
