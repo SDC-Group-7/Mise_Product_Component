@@ -25,7 +25,6 @@ build/
 dist/
 
 # mySQL password
-config.js
 .envrc
 
 # bundle
