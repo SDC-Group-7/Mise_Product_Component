@@ -18,7 +18,7 @@ jobs:
             - ./node_modules
       - run:
           name: test
-          command: ci-test
+          command: npm run ci-test
 
 workflows:
     build-and-test:
