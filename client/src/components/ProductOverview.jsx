@@ -7,7 +7,7 @@ import TabList from './TabList';
 
 export const getProduct = async (id) => {
   try {
-    return await axios.get(`http://localhost:3000/product/${id}`);
+    return await axios.get(`/product/${id}`);
   } catch (error) {
     throw new Error(error);
   }
@@ -84,7 +84,6 @@ const Container = styled.div`
   flex-direction: column;
   background: rgb(255, 255, 255);
   padding: 18px;
-  border: 1px solid rgb(224, 224, 224);
   max-width: 352.797px;
   min-width: 250px;
   line-height: 1.5;
