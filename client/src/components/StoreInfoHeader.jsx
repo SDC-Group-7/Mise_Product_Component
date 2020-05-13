@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 
 const StoreInfoHeader = ({ handleChangeStore }) => (
   <Container>
-    <div data-test="closestStoreText">Closest Store</div>
-    <button data-test="infoButton" type="button">i</button>
-    <button data-test="changeStoreButton" type="button" onClick={handleChangeStore}>
-      Change Store Location
-    </button>
+    <div data-test="closestStoreText">
+      Closest Store
+      <InfoButtonWrapper>
+        <InfoButton data-test="infoButton" type="button">i</InfoButton>
+      </InfoButtonWrapper>
+    </div>
+    <ChangeStoreButton data-test="changeStoreButton" type="button" onClick={handleChangeStore}>
+      <ChangeStoreText>Change Store Location</ChangeStoreText>
+    </ChangeStoreButton>
   </Container>
 );
 
@@ -16,6 +20,50 @@ export default StoreInfoHeader;
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-content: center;
+`;
+
+const InfoButton = styled.button`
+  width: 1.125rem;
+  height: 1.125rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(117, 117, 117);
+  border-image: initial;
+  border-radius: 100%;
+  padding: 0px;
+  margin: 0px;
+`;
+
+const InfoButtonWrapper = styled.span`
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  margin-left: 0.3125rem;
+`;
+
+const ChangeStoreButton = styled.button`
+  display: inline-block;
+  width: auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+  color: rgb(0, 109, 183);
+  padding: 0px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 0px;
+  background: transparent;
+`;
+
+const ChangeStoreText = styled.span`
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  font-weight: 400;
 `;
 
 StoreInfoHeader.propTypes = {

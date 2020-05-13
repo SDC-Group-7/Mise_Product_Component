@@ -3,14 +3,18 @@ const express = require('express');
 const { getProduct, getStores } = require('./controller.js');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3002;
 
 app.use(express.static('public'));
 app.use(express.json());
-// app.use((req, res, next) => {
-//   console.log(`Incoming ${req.method} request to ${req.path}`);
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+app.use((req, res, next) => {
+  console.log(`Incoming ${req.method} request to ${req.path}`);
+  next();
+});
 
 app.get('/product/:id', (req, res) => {
   getProduct(req.params.id, (err, results) => {

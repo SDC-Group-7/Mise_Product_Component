@@ -35,7 +35,7 @@ const TabList = (props) => {
 
   const getStores = async (id, searchQuery) => {
     try {
-      return await axios.get(`http://localhost:3000/product/${id}/find-store?q=${searchQuery}`);
+      return await axios.get(`/product/${id}/find-store?q=${searchQuery}`);
     } catch (error) {
       throw new Error(error);
     }
@@ -99,15 +99,46 @@ const TabList = (props) => {
 };
 
 const Tabs = styled.ul`
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  padding: initial;
 `;
 
 const CheckStoreButtonContainer = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.1875rem;
+  color: rgb(0, 0, 0);
+  margin-right: 1.125rem;
+  border-top-color: rgb(0, 109, 183);
+  border-right-color: rgb(0, 109, 183);
+  border-left-color: rgb(0, 109, 183);
+  text-decoration: none;
 `;
 
 const BuyNowButtonContainer = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1.1875rem;
+  color: rgb(0, 0, 0);
+  margin-right: 1.125rem;
+  text-decoration: none;
 `;
 
 const TabButton = styled.button`
+  background: transparent;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  padding: 0px;
+  cursor: pointer;
+  box-shadow: none;
+  border-width: 0px;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
 TabList.propTypes = {
