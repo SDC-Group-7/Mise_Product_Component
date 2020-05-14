@@ -64,10 +64,10 @@ const TabList = (props) => {
   return (
     <>
       <Tabs>
-        <BuyNowButtonContainer>
+        <BuyNowButtonContainer clicked={tab}>
           <TabButton className="BuyNow" onClick={tab ? null : handleTabClick}>Buy Now</TabButton>
         </BuyNowButtonContainer>
-        <CheckStoreButtonContainer>
+        <CheckStoreButtonContainer clicked={tab}>
           <TabButton className="CheckStore" onClick={tab ? handleTabClick : null}>Check Store Stock</TabButton>
         </CheckStoreButtonContainer>
       </Tabs>
@@ -103,6 +103,7 @@ const Tabs = styled.ul`
   align-items: stretch;
   list-style: none;
   padding: initial;
+  margin-bottom: auto;
 `;
 
 const CheckStoreButtonContainer = styled.li`
@@ -116,6 +117,8 @@ const CheckStoreButtonContainer = styled.li`
   border-right-color: rgb(0, 109, 183);
   border-left-color: rgb(0, 109, 183);
   text-decoration: none;
+  border-bottom: ${(prop) => (!prop.clicked ? '2px solid rgb(0, 109, 183)' : '2px solid transparent')};
+  padding-bottom: 1.125rem;
 `;
 
 const BuyNowButtonContainer = styled.li`
@@ -126,6 +129,8 @@ const BuyNowButtonContainer = styled.li`
   color: rgb(0, 0, 0);
   margin-right: 1.125rem;
   text-decoration: none;
+  border-bottom: ${(prop) => (prop.clicked ? '2px solid rgb(0, 109, 183)' : '2px solid transparent')};
+  padding-bottom: 1.125rem;
 `;
 
 const TabButton = styled.button`
@@ -139,6 +144,9 @@ const TabButton = styled.button`
   border-width: 0px;
   font-size: 16px;
   font-weight: 500;
+  &:hover {
+    color: rgb(0, 109, 183);
+  }
 `;
 
 TabList.propTypes = {
