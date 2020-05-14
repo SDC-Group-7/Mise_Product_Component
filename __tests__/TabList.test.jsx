@@ -1,9 +1,14 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import { waitFor } from '@testing-library/dom';
+import '@testing-library/jest-dom/extend-expect';
+import { shallow } from 'enzyme';
+import axios from 'axios';
 import TabList from '../client/src/components/TabList';
 import BuyNowTab from '../client/src/components/BuyNowTab';
 import CheckStoreTab from '../client/src/components/CheckStoreTab';
-import StoreSearchForm from '../client/src/components/StoreSearchForm';
+
+jest.mock('axios');
 
 describe('TabList', () => {
   test('should display the Buy Now tab when you click the button', () => {
@@ -31,28 +36,31 @@ describe('TabList', () => {
     expect(wrapper.find(BuyNowTab).exists()).toBe(false);
   });
 
-  test('Buy Now tab should maintain cart data between tab switches', () => {
-    const wrapper = mount(<TabList productLimit={5} />);
-    wrapper.find('[data-test="addToCart"]').first().simulate('click');
-    expect(wrapper.find('[data-cartquantity=1]').length).toBeTruthy();
-    wrapper.find('.CheckStore').first().simulate('click');
-    wrapper.find('.BuyNow').first().simulate('click');
-    expect(wrapper.find('[data-cartquantity=1]').length).toBeTruthy();
+  test('Buy Now tab should maintain cart data between tab switches', async () => {
+    const { getByTestId, getByText } = render(<TabList productLimit={5} />);
+    const options = { timeout: 2000 };
+
+    fireEvent.click(getByTestId('addToCart'));
+    await waitFor(() => expect(getByTestId('cartQuantity = 1')).toBeInTheDocument(), options);
+    fireEvent.click(getByText('Check Store Stock'));
+    fireEvent.click(getByText('Buy Now'));
+    await waitFor(() => expect(getByTestId('cartQuantity = 1')).toBeInTheDocument());
   });
 
-  // test('Check Store tab should stay in searched state between tab switches', async () => {
-  //   // FAILING INTEGRATION TEST. Unable to figure out how to simulate the experience
-  //   const wrapper = mount(<TabList productId={6} />);
+  test('Check Store tab should stay in searched state between tab switches', async () => {
+    const { getByTestId, getByText, queryByTestId } = render(<TabList productLimit={6} />);
+    const options = { timeout: 2000 };
+    axios.get.mockResolvedValue({ data: [] });
 
-  //   wrapper.find('.CheckStore').first().simulate('click');
-  //   wrapper.update();
-  //   expect(wrapper.find(CheckStoreTab).exists()).toBe(true);
-  //   expect(wrapper.find(BuyNowTab).exists()).toBe(false);
-  //   wrapper.find('[data-test="queryChange"]').first().instance().value = 94117;
-  //   wrapper.update();
-  //   wrapper.find('[data-test="queryClick"]').first().simulate('click');
-  //   wrapper.setState({ hasSearched: true });
-  //   wrapper.update();
-  //   expect(wrapper.find(StoreSearchForm)).toExist();
-  // });
+    fireEvent.click(getByText('Check Store Stock'));
+    expect(getByTestId('queryChange')).toBeInTheDocument();
+    expect(queryByTestId('addToCart')).toBeNull();
+    fireEvent.change(getByTestId('queryChange'), { target: { value: 94117 } });
+    fireEvent.click(getByTestId('queryClick'));
+    await waitFor(() => expect(queryByTestId('queryChange')).toBeNull(), options);
+    expect(getByTestId('noStore')).toBeInTheDocument();
+    fireEvent.click(getByText('Buy Now'));
+    fireEvent.click(getByText('Check Store Stock'));
+    expect(getByTestId('noStore')).toBeInTheDocument();
+  });
 });

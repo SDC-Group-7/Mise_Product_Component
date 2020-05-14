@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const AddToCartButton = ({ productLimit, handleCartAddClick, cartQuantity }) => (
-  cartQuantity < productLimit
-    ? (
-      <Button data-test="addToCart" type="submit" onClick={handleCartAddClick}>
-        Add to Bag
-      </Button>
-    ) : <LimitedButton data-test="limitExceed">Limit exceeded</LimitedButton>
-);
+const AddToCartButton = ({ productLimit, handleCartAddClick, cartQuantity }) => {
+  const limitExceeded = cartQuantity === productLimit;
+  const [clicked, setClicked] = useState(false);
+  const onClick = () => {
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+      handleCartAddClick();
+    }, 2000);
+  };
+
+  return (
+    <AddButton data-testid="addToCart" type="submit" onClick={onClick} disableButton={clicked || limitExceeded} disabled={clicked || limitExceeded}>
+      {limitExceeded ? 'Limit exceeded' : 'Add to Bag'}
+    </AddButton>
+
+  );
+};
 
 AddToCartButton.propTypes = {
   productLimit: PropTypes.number,
@@ -26,35 +36,23 @@ AddToCartButton.defaultProps = {
 export default AddToCartButton;
 
 
-const Button = styled.button`
-  text-align: center;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.1875rem;
-  background-color: rgb(253, 128, 36);
-  color: rgb(0, 0, 0);
-  padding: 0.9375rem;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 4px;
-  border-color: rgb(253, 128, 36);
-  width: 100%;
-`;
-
-const LimitedButton = styled.button`
+const AddButton = styled.button`
+  background-color: ${(prop) => (prop.disableButton ? 'rgb(224, 224, 224)' : 'rgb(253, 128, 36)')};
+  border-color: ${(prop) => (prop.disableButton ? 'rgb(224, 224, 224)' : 'rgb(253, 128, 36)')};
+  &:hover {
+    background-color: ${(prop) => (prop.disableButton ? 'rgb(224, 224, 224)' : 'white')};
+  };
+  cursor: ${(prop) => (prop.disableButton ? 'not-allowed' : 'pointer')};
   display: block;
-  width: 100%;
-  border-collapse: collapse;
   text-align: center;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.1875rem;
-  background-color: rgb(224, 224, 224);
   color: rgb(0, 0, 0);
-  cursor: not-allowed;
   padding: 0.9375rem;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
-  border-color: rgb(224, 224, 224);
+  border-collapse: collapse;
+  width: 100%;
 `;

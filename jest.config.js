@@ -7,8 +7,8 @@ module.exports = {
   moduleFileExtensions: ['js', 'json', 'jsx'],
   setupFiles: ['<rootDir>/enzyme.config.js'],
   setupFilesAfterEnv: ['jest-enzyme'],
-  testEnvironment: 'enzyme',
-  testEnvironmentOptions: { enzymeAdapter: 'react16' },
+  testEnvironment: 'jest-environment-jsdom-sixteen',
+  // testEnvironmentOptions: { enzymeAdapter: 'react16' },
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   transform: {

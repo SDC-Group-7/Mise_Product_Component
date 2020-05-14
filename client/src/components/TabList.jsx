@@ -20,7 +20,7 @@ const TabList = (props) => {
 
   const handleTabClick = () => setTab(!tab);
 
-  const handleCartAddClick = () => setCartQuantity(cartQuantity + quantity);
+  const handleCartAddClick = () => setCartQuantity(Number(cartQuantity + quantity));
 
   const handleChangeQuantity = (newQuantity) => setQuantity(newQuantity);
 
@@ -74,6 +74,7 @@ const TabList = (props) => {
       {tab
         ? (
           <BuyNowTab
+            data-testid="buyNowTab"
             cartQuantity={cartQuantity}
             handleCartAddClick={handleCartAddClick}
             productLimit={productLimit}
@@ -86,6 +87,7 @@ const TabList = (props) => {
         )
         : (
           <CheckStoreTab
+            data-testid="checkStoreTab"
             stores={stores}
             query={query}
             hasSearched={hasSearched}
