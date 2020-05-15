@@ -26,6 +26,7 @@ dist/
 
 # mySQL password
 .envrc
-
+.env
 # bundle
 bundle.js
+
