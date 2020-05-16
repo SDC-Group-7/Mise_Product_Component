@@ -8,5 +8,4 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
-console.log('=========Connected============');
 module.exports.connection = connection;
