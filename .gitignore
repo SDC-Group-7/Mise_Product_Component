@@ -30,3 +30,6 @@ dist/
 # bundle
 bundle.js
 
+#docker bash script
+docker.bash
+

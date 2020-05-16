@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "sleep 30 && concurrently \"npm run reset-db\" \"npm run seed-db\" \"npm run start-server\" \"npm run react-dev\"",
+    "start": "sleep 30 && concurrently \"npm run start-server\" \"npm run react-dev\"",
     "seed-db": "node ./seeder/seedingScript.js",
     "reset-db": "mysql -h db -u root <schema.sql",
     "start-server": "nodemon ./server/index.js",
@@ -21,7 +21,6 @@
     "axios": "^0.19.2",
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
-    "faker": "^4.1.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "prop-types": "^15.7.2",
