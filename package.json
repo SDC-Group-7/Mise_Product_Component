@@ -8,14 +8,15 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "sleep 30 && concurrently \"npm run start-server\" \"npm run react-dev\"",
+    "start": "sleep 15 && concurrently \"npm run start-server\" \"npm run react-prod\"",
     "seed-db": "node ./seeder/seedingScript.js",
     "reset-db": "mysql -h db -u root <schema.sql",
     "start-server": "nodemon ./server/index.js",
     "react-dev": "webpack -w",
     "test": "NODE_ENV=test jest --watchAll",
     "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
-    "build-docker": "bash docker.bash"
+    "build-docker": "bash docker.bash",
+    "react-prod": "webpack --mode=production"
   },
   "dependencies": {
     "axios": "^0.19.2",
