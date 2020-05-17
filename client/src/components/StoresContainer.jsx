@@ -9,7 +9,7 @@ const StoresContainer = ({ stores, handleChangeStore }) => (
     <StoreInfoHeader handleChangeStore={handleChangeStore} />
     {stores.length
       ? <StoreDisplay stores={stores} />
-      : <div data-test="noStore">No stores found within a 60-mile radius of your zip code</div>}
+      : <div data-testid="noStore">No stores found within a 60-mile radius of your zip code</div>}
   </>
 );
 

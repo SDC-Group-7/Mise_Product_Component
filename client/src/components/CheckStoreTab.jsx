@@ -12,9 +12,10 @@ const CheckStoreTab = (props) => {
   return (
     <Container>
       {hasSearched
-        ? <StoresContainer stores={stores} handleChangeStore={handleChangeStore} />
+        ? <StoresContainer data-testid="storesContainer" stores={stores} handleChangeStore={handleChangeStore} />
         : (
           <StoreSearchForm
+            data-testid="storeSearchForm"
             query={query}
             handleChangeQuery={handleChangeQuery}
             handleSubmitQuery={handleSubmitQuery}

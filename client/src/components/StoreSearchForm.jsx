@@ -7,14 +7,14 @@ const StoreSearchForm = ({ query, handleSubmitQuery, handleChangeQuery }) => (
     <form tabIndex="-1" onSubmit={handleSubmitQuery}>
       <input
         type="text"
-        data-test="queryChange"
+        data-testid="queryChange"
         value={query}
         onChange={handleChangeQuery}
       />
       <span tabIndex="-1">
         Enter a city and state or zip code
       </span>
-      <button type="submit" data-test="queryClick">Click me</button>
+      <button type="submit" data-testid="queryClick">Click me</button>
     </form>
   </div>
 );

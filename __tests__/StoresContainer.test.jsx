@@ -18,7 +18,7 @@ describe('Stores Container', () => {
 
     const wrapper = shallow(<StoresContainer stores={stores} />);
 
-    expect(wrapper.find('[data-test="noStore"]').exists()).toBe(true);
+    expect(wrapper.find('[data-testid="noStore"]').exists()).toBe(true);
   });
 
   test('it should render the StoreInfoHeader', () => {

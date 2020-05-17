@@ -20,7 +20,7 @@ const QuantityToggler = (props) => {
       />
       <Input
         type="num"
-        data-test="input"
+        data-testid="input"
         min="1"
         max={productLimit}
         value={quantity}

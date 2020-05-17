@@ -136,8 +136,31 @@ const themes = [
 
 const featured = ['New', 'Exclusives', 'Retiring soon', 'Hard to find'];
 
+const names = [
+  'Gorgeous Cotton Gloves',
+  'Gorgeous Metal Towels',
+  'Ergonomic Granite Mouse',
+  'Tasty Steel Keyboard',
+  'Small Plastic Shirt',
+  'Rustic Steel Hat',
+  'Handcrafted Metal Ball',
+  'Practical Fresh Salad',
+  'Intelligent Granite Tuna',
+  'Handmade Frozen Mouse',
+  'Fantastic Frozen Table',
+  'Refined Rubber Gloves',
+  'Generic Wooden Hat',
+  'Fantastic Steel Bacon',
+  'Licensed Frozen Computer',
+  'Generic Plastic Salad',
+  'Gorgeous Concrete Pizza',
+  'Awesome Cotton Sausages',
+  'Intelligent Cotton Pizza',
+];
+
 module.exports = {
   mockStores: stores,
   mockThemes: themes,
   mockFeatured: featured,
+  mockNames: names,
 };

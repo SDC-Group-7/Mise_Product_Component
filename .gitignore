@@ -26,6 +26,10 @@ dist/
 
 # mySQL password
 .envrc
-
+options.env
 # bundle
 bundle.js
+
+#docker bash script
+docker.bash
+
