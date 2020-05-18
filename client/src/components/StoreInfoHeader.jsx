@@ -69,6 +69,7 @@ const ChangeStoreText = styled.span`
   font-size: 1rem;
   line-height: 1.5625rem;
   font-weight: 400;
+  cursor: pointer;
 `;
 
 StoreInfoHeader.propTypes = {

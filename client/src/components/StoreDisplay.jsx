@@ -31,18 +31,25 @@ const StoreDisplay = ({ stores }) => {
 
   return (
     <Container>
-      <StoreListDropDown>
-        <SelectStoreButton data-test="selectStore" tabIndex={0} onClick={clickListHandler}>
-          <StyledSpan>Select a Store</StyledSpan>
-          <span>{selectedStore.storeName}</span>
-        </SelectStoreButton>
-        {listActive
-          ? (
-            <DropDownContent>
-              {closestStoresList.slice(1, 4)}
-            </DropDownContent>
-          ) : null}
-      </StoreListDropDown>
+      <StoreListWrapper>
+        <StoreListDropDown>
+          <SelectStoreButton data-test="selectStore" tabIndex={0} onClick={clickListHandler}>
+            <StyledSpan>Select a Store</StyledSpan>
+            <span>{selectedStore.storeName}</span>
+          </SelectStoreButton>
+          {listActive
+            ? (
+              <DropDownContent>
+                {closestStoresList.slice(1, 4)}
+              </DropDownContent>
+            ) : null}
+        </StoreListDropDown>
+        <ArrowWrapper>
+          <Arrow width="18px" height="28px" viewBox="0 0 18 28" aria-hidden="true" listActive={listActive}>
+            <path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor" />
+          </Arrow>
+        </ArrowWrapper>
+      </StoreListWrapper>
       <StoreInfo store={selectedStore} />
     </Container>
   );
@@ -75,6 +82,10 @@ const DropDownContent = styled.div`
   };
 `;
 
+const StoreListWrapper = styled.div`
+  position: relative;
+`;
+
 const SelectStoreButton = styled.div`
   display: flex;
   padding: 0.75rem 1.125rem;
@@ -83,4 +94,21 @@ const SelectStoreButton = styled.div`
 
 const StyledSpan = styled.span`
   font-size: 14px;
+`;
+
+const ArrowWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 1.125rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+`;
+
+const Arrow = styled.svg`
+  width: 1.125rem;
+  height: 1.125rem;
+  color: rgb(117, 117, 117);
+  pointer-events: none;
+  transition: transform 0.3s ease 0s;
+  transform: ${(prop) => (prop.listActive ? 'rotate(270deg)' : 'rotate(90deg)')};
 `;
