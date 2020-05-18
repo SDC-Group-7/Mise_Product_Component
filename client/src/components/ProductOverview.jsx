@@ -94,6 +94,7 @@ const Container = styled.div`
   @media screen and (max-width: 352.797px) {
     flex: 0 0 30%;
   };
+  margin: auto;
 `;
 
 const BadgeWrapper = styled.div`
