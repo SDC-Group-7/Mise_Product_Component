@@ -24,7 +24,7 @@ const Container = styled.div`
   align-content: center;
 `;
 
-const InfoButton = styled.button`
+export const InfoButton = styled.button`
   width: 1.125rem;
   height: 1.125rem;
   border-width: 1px;
@@ -34,9 +34,14 @@ const InfoButton = styled.button`
   border-radius: 100%;
   padding: 0px;
   margin: 0px;
+  cursor: pointer;
+  &:hover {
+    color: rgb(0, 109, 183);
+    border-color: rgb(0, 109, 183);
+  };
 `;
 
-const InfoButtonWrapper = styled.span`
+export const InfoButtonWrapper = styled.span`
   font-size: 0.75rem;
   line-height: 1.125rem;
   margin-left: 0.3125rem;
