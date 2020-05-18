@@ -1,16 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import { InStockSymbol, OutOfStockSymbol } from './SVGs';
 
 const StoreInfo = ({ store }) => {
-  const { storeName, storeAddress, productAvailability, id} = store;
+  const {
+    storeName, storeAddress, productAvailability, id,
+  } = store;
 
   return (
     <Container>
       <Availability data-test="availability">
-        {productAvailability ? 'Y' : 'X'}
+        {productAvailability ? (
+          <InStockSymbol />
+        ) : (
+          <OutOfStockSymbol />
+        )}
       </Availability>
       <Info>
         <StoreName data-test="storeName">{storeName}</StoreName>
+        <AvailabilityMessage>{productAvailability ? 'In Stock at this time' : 'Out of Stock'}</AvailabilityMessage>
         <StoreAddress data-test="storeAddress">{storeAddress}</StoreAddress>
       </Info>
       <Distance data-test="distance">{`${id} mi`}</Distance>
@@ -56,4 +64,10 @@ const Distance = styled.div`
 const Availability = styled.div`
   padding-left: .25rem;
   padding-right: .25rem;
+`;
+
+const AvailabilityMessage = styled.div`
+  color: rgb(117, 117, 117);
+  font-size: 0.75rem;
+  font-weight: 500;
 `;

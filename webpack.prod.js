@@ -1,10 +1,10 @@
-const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
 const zlib = require('zlib');
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
 
-module.exports = {
+module.exports = merge(common, {
   mode: 'production',
-  entry: './client/src/index.jsx',
   plugins: [
     new CompressionPlugin({
       filename: '[path].br[query]',
@@ -21,20 +21,4 @@ module.exports = {
       algorithm: 'gzip',
     }),
   ],
-  output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-};
+});

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { InStockSymbol, OutOfStockSymbol } from './SVGs';
 
 const StoreListItem = ({ store, index, changeStore }) => {
   const { storeName, productAvailability, id } = store;
@@ -7,7 +8,11 @@ const StoreListItem = ({ store, index, changeStore }) => {
   return (
     <Container>
       <Availability data-test="availability" id={index} onClick={changeStore}>
-        {productAvailability ? 'Y' : 'X'}
+        {productAvailability ? (
+          <InStockSymbol />
+        ) : (
+          <OutOfStockSymbol />
+        )}
       </Availability>
       <Info>
         <StoreName data-test="storeName" id={index} onClick={changeStore}>{storeName}</StoreName>

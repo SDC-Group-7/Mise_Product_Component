@@ -55,4 +55,5 @@ const AddButton = styled.button`
   border-radius: 4px;
   border-collapse: collapse;
   width: 100%;
+  min-height: 3.125rem;
 `;
