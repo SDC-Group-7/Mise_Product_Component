@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StoreSearchForm = ({ query, handleSubmitQuery, handleChangeQuery }) => (
   <div>
-    <p>Enter your address to find a store near you.</p>
+    <StyledMessage>Enter your address to find a store near you.</StyledMessage>
     <form onSubmit={handleSubmitQuery}>
       <SearchWrapper>
         <SearchBarWrapper>
@@ -104,4 +104,11 @@ const EnterText = styled.span`
     transform: translate(1px, -0.4375rem);
     font-size: 0.8em;
   };
+`;
+
+const StyledMessage = styled.p`
+  font-size: .875rem;
+  line-height: 1.1875rem;
+  font-weight: 400;
+  margin-top: 0px;
 `;
