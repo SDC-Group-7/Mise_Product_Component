@@ -1,12 +1,12 @@
 const path = require('path');
-const { CleanWebPackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
   entry: './client/src/index.jsx',
   plugins: [
-    new CleanWebPackPlugin(),
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       title: 'Production',
       template: 'template.html',
