@@ -95,6 +95,7 @@ const Container = styled.div`
     flex: 0 0 30%;
   };
   margin: auto;
+  width: auto;
 `;
 
 const BadgeWrapper = styled.div`
