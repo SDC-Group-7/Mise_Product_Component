@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import BuyNowTab from '../client/src/components/BuyNowTab';
 import QuantityToggler from '../client/src/components/QuantityToggler';
 import AddToCartButton from '../client/src/components/AddToCartButton';
@@ -8,7 +8,7 @@ describe('BuyNowTab', () => {
   test('should render tab if product is available online', () => {
     const fakePropValue = 1;
 
-    const wrapper = shallow(<BuyNowTab
+    const wrapper = mount(<BuyNowTab
       productAvailabilityOnline={fakePropValue}
       productLimit={3}
     />);

@@ -15,16 +15,16 @@ describe('API tests', () => {
   it('should get a product from the database', async (done) => {
     const product = {
       id: 1,
-      productName: 'Gorgeous Cotton Gloves',
-      price: 12.99,
-      reviewCount: 90,
-      rating: 0,
-      themeName: 'Overwatch',
-      themeImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/themes/overwatch.png',
-      featured: 'Retiring soon',
+      productName: 'Fantastic Steel Bacon',
+      price: 230.99,
+      reviewCount: 88,
+      rating: 4,
+      themeName: 'DC Super Heroes',
+      themeImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/themes/dc.png',
+      featured: 'New',
       chokingHazard: 1,
-      productLimit: 4,
-      productImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/products/overwatch.png',
+      productLimit: 6,
+      productImageUrl: 'https://legofec.s3-us-west-1.amazonaws.com/products/dc.png',
       productAvailabilityOnline: 0,
     };
     const res = await request.get(`/product/${product.id}`);
@@ -40,14 +40,14 @@ describe('API tests', () => {
         storeName: 'LEGO Store University Town Center',
         storeAddress: '4545 La Jolla Village Dr University Town Center Space H23, San Diego, CA 92122',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 101,
         storeName: 'LEGO Store Ontario Mills',
         storeAddress: '1 Mills Cir #631, Ontario, CA 91764',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
       {
         id: 201,
@@ -61,7 +61,7 @@ describe('API tests', () => {
         storeName: 'LEGOLAND California Hotel LEGO Gift Shop',
         storeAddress: '5885 The Crossings Dr, Carlsbad, CA 92008',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
       {
         id: 601,
@@ -75,7 +75,7 @@ describe('API tests', () => {
         storeName: 'LEGO Store South Coast Plaza',
         storeAddress: '3333 Bristol Street South Coast Plaza Space 1042, Costa Mesa, CA 92626',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 801,
@@ -96,14 +96,14 @@ describe('API tests', () => {
         storeName: 'LEGO Store Hillsdale Shopping Center',
         storeAddress: '341 E Sailer Dr, San Mateo, CA 94403',
         productId: 1,
-        productAvailability: 0,
+        productAvailability: 1,
       },
       {
         id: 1401,
         storeName: 'LEGO Store Mission Viejo',
         storeAddress: '555 The, Shops At Mission Viejo Space 428B, Mission Viejo, CA 92691',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
       {
         id: 1501,
@@ -117,7 +117,7 @@ describe('API tests', () => {
         storeName: 'LEGO Store Westfield Topanga',
         storeAddress: '6600 Topanga Canyon Blvd, Canoga Park, CA 91303',
         productId: 1,
-        productAvailability: 1,
+        productAvailability: 0,
       },
     ];
 

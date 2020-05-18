@@ -81,7 +81,7 @@ const TabList = (props) => {
             productAvailabilityOnline={productAvailabilityOnline}
             themeName={themeName}
             handleChangeQuantity={handleChangeQuantity}
-            quantity={quantity}
+            quantity={Number(quantity)}
             handleBlur={handleBlur}
           />
         )

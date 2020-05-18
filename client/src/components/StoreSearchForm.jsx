@@ -9,7 +9,7 @@ const StoreSearchForm = ({ query, handleSubmitQuery, handleChangeQuery }) => (
     <form onSubmit={handleSubmitQuery}>
       <SearchWrapper>
         <SearchBarWrapper>
-          <StyledLabel for="search" tabIndex="-1" >
+          <StyledLabel tabIndex="-1">
             <StyledInput
               type="text"
               data-testid="queryChange"
