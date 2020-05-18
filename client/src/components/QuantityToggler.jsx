@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { InfoButton, InfoButtonWrapper } from './StoreInfoHeader';
+import { Plus, Minus } from './SVGs';
 
 const QuantityToggler = (props) => {
   const {
@@ -21,9 +22,7 @@ const QuantityToggler = (props) => {
             onClick={handleDecrease}
             disabled={quantity === 1}
           >
-            <svg className="minus" width="14px" height="2px" viewBox="0 0 14 2" aria-hidden="true" data-di-rand="1589763181889">
-              <polygon fill={quantity === 1 ? 'rgb(224, 224, 224)' : 'black'} points="14 2 0 2 0 -6.03961325e-14 14 -6.03961325e-14" />
-            </svg>
+            <Minus quantity={quantity} />
           </DecreaseButton>
           <InputWrapper>
             <Input
@@ -41,10 +40,7 @@ const QuantityToggler = (props) => {
             onClick={handleIncrease}
             disabled={quantity === productLimit}
           >
-            <svg className="add" xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 14 14" aria-hidden="true" data-di-rand="1589763181896">
-              <polygon fill={quantity === productLimit ? 'rgb(224, 224, 224)' : 'black'} points="14 8 0 8 0 6 14 6" />
-              <rect fill={quantity === productLimit ? 'rgb(224, 224, 224)' : 'black'} fillRule="nonzero" x="6" y="0" width="2" height="14" />
-            </svg>
+            <Plus quantity={quantity} productLimit={productLimit} />
           </IncreaseButton>
         </QuantityTogglerWrapper>
       </QuantityContainer>

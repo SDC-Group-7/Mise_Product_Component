@@ -45,6 +45,38 @@ export const Heart = ({ addedToWishlist }) => (
   </StyledHeart>
 );
 
+export const Minus = ({ quantity }) => (
+  <svg className="minus" width="14px" height="2px" viewBox="0 0 14 2" aria-hidden="true" data-di-rand="1589763181889">
+    <polygon fill={quantity === 1 ? 'rgb(224, 224, 224)' : 'black'} points="14 2 0 2 0 -6.03961325e-14 14 -6.03961325e-14" />
+  </svg>
+);
+
+export const Plus = ({ quantity, productLimit }) => (
+  <svg className="add" xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" viewBox="0 0 14 14" aria-hidden="true" data-di-rand="1589763181896">
+    <polygon fill={quantity === productLimit ? 'rgb(224, 224, 224)' : 'black'} points="14 8 0 8 0 6 14 6" />
+    <rect fill={quantity === productLimit ? 'rgb(224, 224, 224)' : 'black'} fillRule="nonzero" x="6" y="0" width="2" height="14" />
+  </svg>
+);
+
+export const InStockSymbol = () => (
+  <svg width="20px" height="13px" viewBox="0 0 20 13">
+    <path d="M0 5.703L7.177 13 20 0h-4.476L7.177 8.442 4.476 5.723H2.238z" fill="rgb(0,133,55)" fillRule="evenodd" />
+  </svg>
+);
+
+export const OutOfStockSymbol = () => (
+  <svg viewBox="0 0 17 17" width="17px" height="17px">
+    <path d="M10.377 8.142l5.953-5.954-2.234-2.234-5.954 5.954L2.188-.046-.046 2.188l5.954 5.954-5.954 5.954 2.234 2.234 5.954-5.953 5.954 5.953 2.234-2.234z" fill="rgb(208, 2, 27)" fillRule="evenodd" />
+  </svg>
+);
+
+export const SearchButton = () => (
+  <StyledSearchButton kind="secondary" type="submit" aria-label="Find Store" data-testid="queryClick">
+    <svg width="18px" height="18px" viewBox="0 0 18 18">
+      <path d="M18 16.615c0 .375-.137.7-.412.973a1.331 1.331 0 0 1-.973.412 1.28 1.28 0 0 1-.973-.412l-3.71-3.7a7.41 7.41 0 0 1-4.317 1.342c-1.03 0-2.017-.2-2.958-.6a7.616 7.616 0 0 1-2.434-1.623 7.605 7.605 0 0 1-1.622-2.433A7.472 7.472 0 0 1 0 7.616c0-1.032.2-2.018.6-2.96a7.65 7.65 0 0 1 1.623-2.433A7.616 7.616 0 0 1 4.657.601 7.49 7.49 0 0 1 7.615 0c1.032 0 2.018.2 2.959.601.94.4 1.752.941 2.434 1.622a7.624 7.624 0 0 1 1.622 2.434c.4.941.601 1.927.601 2.959a7.403 7.403 0 0 1-1.342 4.316l3.71 3.71c.267.266.401.592.401.973m-5.539-9c0-1.334-.474-2.475-1.423-3.423C10.09 3.244 8.95 2.77 7.615 2.77c-1.333 0-2.475.474-3.423 1.422C3.243 5.14 2.77 6.28 2.77 7.616c0 1.334.474 2.475 1.423 3.423.948.949 2.09 1.422 3.423 1.422 1.335 0 2.475-.473 3.423-1.422.95-.948 1.423-2.09 1.423-3.423" fill="#006DB7" fillRule="evenodd" />
+    </svg>
+  </StyledSearchButton>
+);
 
 const StarWrapper = styled.div`
   width: 1.25rem;
@@ -58,4 +90,18 @@ const StarWrapper = styled.div`
 const StyledHeart = styled.svg`
 height: 1.875rem;
 width: 1.875rem;
+`;
+
+const StyledSearchButton = styled.button`
+  white-space: nowrap;
+  transform: translateX(-1px);
+  margin-right: -1px;
+  box-shadow: none;
+  max-height: 100%;
+  padding: 0px 15px 0px 15px;
+  border-radius: 0px 0.3125rem 0.3125rem 0px;
+  &:hover {
+    background: rgb(230, 243, 255);
+  };
+  cursor: pointer;
 `;
