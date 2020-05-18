@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const AddToCartButton = ({ productLimit, handleCartAddClick, cartQuantity }) => {
-  const limitExceeded = cartQuantity === productLimit;
+  const limitExceeded = cartQuantity >= productLimit;
   const [clicked, setClicked] = useState(false);
   const onClick = () => {
     setClicked(true);
