@@ -14,7 +14,6 @@ const ReviewContainer = ({ reviewCount, rating }) => {
       stars.push(<HalfStar />);
     }
   }
-
   return (
     <Container className="rating-review">
       <RatingBar>
