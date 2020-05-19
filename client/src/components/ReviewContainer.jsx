@@ -14,6 +14,12 @@ const ReviewContainer = ({ reviewCount, rating }) => {
       stars.push(<HalfStar />);
     }
   }
+
+  const scrollToReviews = () => {
+    const reviewSection = document.getElementById('reviews-overview');
+    return reviewSection ? reviewSection.scrollIntoView() : null;
+  };
+
   return (
     <Container className="rating-review">
       <RatingBar>
@@ -21,7 +27,7 @@ const ReviewContainer = ({ reviewCount, rating }) => {
           {stars}
         </StarsWrapper>
       </RatingBar>
-      <Button kind="ghost" type="submit">
+      <Button kind="ghost" type="submit" onClick={scrollToReviews}>
         {`${reviewCount} Reviews`}
       </Button>
       <Button kind="ghost" type="submit">Submit Review</Button>
