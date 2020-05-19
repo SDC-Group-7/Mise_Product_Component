@@ -64,9 +64,9 @@ export const InStockSymbol = () => (
   </svg>
 );
 
-export const OutOfStockSymbol = () => (
+export const OutOfStockSymbol = ({ black }) => (
   <svg viewBox="0 0 17 17" width="17px" height="17px">
-    <path d="M10.377 8.142l5.953-5.954-2.234-2.234-5.954 5.954L2.188-.046-.046 2.188l5.954 5.954-5.954 5.954 2.234 2.234 5.954-5.953 5.954 5.953 2.234-2.234z" fill="rgb(208, 2, 27)" fillRule="evenodd" />
+    <path d="M10.377 8.142l5.953-5.954-2.234-2.234-5.954 5.954L2.188-.046-.046 2.188l5.954 5.954-5.954 5.954 2.234 2.234 5.954-5.953 5.954 5.953 2.234-2.234z" fill={black ? "black" : "rgb(208, 2, 27)"} fillRule="evenodd" />
   </svg>
 );
 

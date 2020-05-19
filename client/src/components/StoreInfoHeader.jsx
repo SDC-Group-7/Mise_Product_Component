@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Modal from './Modal';
 
-const StoreInfoHeader = ({ handleChangeStore }) => (
-  <Container>
-    <div data-test="closestStoreText">
-      Closest Store
-      <InfoButtonWrapper>
-        <InfoButton data-test="infoButton" type="button">i</InfoButton>
-      </InfoButtonWrapper>
-    </div>
-    <ChangeStoreButton data-test="changeStoreButton" type="button" onClick={handleChangeStore}>
-      <ChangeStoreText>Change Store Location</ChangeStoreText>
-    </ChangeStoreButton>
-  </Container>
-);
+const StoreInfoHeader = ({ handleChangeStore }) => {
+  const [show, setShow] = useState(false);
+  const handleClick = () => setShow(!show);
+
+  return (
+    <Container>
+      <InfoButtonContainer data-test="closestStoreText">
+        Closest Store
+        <InfoButtonWrapper>
+          <InfoButton data-test="infoButton" type="button" onClick={handleClick}>i</InfoButton>
+        </InfoButtonWrapper>
+        <Modal show={show} handleClick={handleClick} />
+      </InfoButtonContainer>
+      <ChangeStoreButton data-test="changeStoreButton" type="button" onClick={handleChangeStore}>
+        <ChangeStoreText>Change Store Location</ChangeStoreText>
+      </ChangeStoreButton>
+    </Container>
+  );
+};
 
 export default StoreInfoHeader;
 
@@ -39,6 +46,12 @@ export const InfoButton = styled.button`
     color: rgb(0, 109, 183);
     border-color: rgb(0, 109, 183);
   };
+`;
+
+const InfoButtonContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 export const InfoButtonWrapper = styled.span`
