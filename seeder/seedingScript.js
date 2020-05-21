@@ -15,6 +15,13 @@ const insertStores = (callback) => {
   });
 };
 
+/*
+-insert products calls insert products again once first insertion is completed
+-need count outside of insert products
+-insert product increments count everytime it runs
+-once count = specified max count, stop recursively calling insert products
+ */
+
 const insertProducts = (callback) => {
   const productList = createRandomProducts(100);
   const query = 'INSERT INTO products (productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productImageUrl, productAvailabilityOnline) VALUES ?';
