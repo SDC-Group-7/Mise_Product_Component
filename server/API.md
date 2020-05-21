@@ -39,7 +39,6 @@
 
 ```json
     {
-      "id": "Number",
       "productName": "String",
       "price": "Number",
       "reviewCount": "Number",
@@ -54,10 +53,10 @@
 
 
 ### Update restaurant info
-  * PATCH `/api/restaurant/:id`
+  * PATCH `/product/:id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `id` product id
 
 **Success Status Code:** `204`
 
@@ -65,42 +64,22 @@
 
 ```json
     {
-      "name": "String",
-      "address": "String",
-      "phone": "String",
-      "website": "String",
-      "cost": "Number"
+      "productName": "String",
+      "price": "Number",
+      "reviewCount": "Number",
+      "rating": "Number",
+      "themeName": "String",
+      "themeImageUrl": "String",
+      "featured": "String",
+      "chokingHazard": "Boolean",
+      "productLimit": "Number"
     }
 ```
 
-### Delete restaurant
-  * DELETE `/api/restaurant/:id`
+### Delete product
+  * DELETE `/product/:id`
 
 **Path Parameters:**
-  * `id` restaurant id
+  * `id` product id
 
 **Success Status Code:** `204`
-
-### Add image to restaurant
-  * POST `/api/restaurants/:restaurantId/images`
-
-**Path Parameters:**
-
-  * `restaurantId` restaurant id
-
-**Success Status Code:** `201`
-
-**Request Body**: Expects JSON with the following keys.
-
-```json
-    {
-      "user": "String",
-      "image": "image URL",
-      "description": "String",
-      "posted": "YYYY-MM-MM",
-      "googleMap": "String location",
-      "category": "String",
-      "restaurant": "id Number",
-      "cost": "Number"
-    }
-```
