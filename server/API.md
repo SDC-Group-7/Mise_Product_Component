@@ -74,7 +74,8 @@
       "themeImageUrl": "String",
       "featured": "String",
       "chokingHazard": "Boolean",
-      "productLimit": "Number"
+      "productLimit": "Number",
+      "productAvailabilityOnline": "Boolean",
     }
 ```
 
