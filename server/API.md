@@ -126,13 +126,22 @@
 **Returns:** JSON
 
 ```json
+  [
     {
       "id": "Number",
       "productId": "Number",
       "storeId": "Number",
       "storeZip": "Number",
       "storeAvailability": "Boolean",
-    }
+    },
+    {
+      "id": "Number",
+      "productId": "Number",
+      "storeId": "Number",
+      "storeZip": "Number",
+      "storeAvailability": "Boolean",
+    },
+  ]
 ```
 
 ### Get Availability of product at specific zip info
@@ -152,14 +161,6 @@
 **Returns:** JSON
 
 ```json
-  [
-    {
-      "id": "Number",
-      "productId": "Number",
-      "storeId": "Number",
-      "storeZip": "Number",
-      "storeAvailability": "Boolean",
-    },
     {
       "id": "Number",
       "productId": "Number",
@@ -167,5 +168,4 @@
       "storeZip": "Number",
       "storeAvailability": "Boolean",
     }
-  ]
 ```
