@@ -111,7 +111,7 @@
 ```
 
 ### Get Availability info
-  * GET `/quantity/:id`
+  * GET `/availability/:id`
 
 **Path Parameters:**
   * `id` : product id
@@ -133,4 +133,39 @@
       "storeZip": "Number",
       "storeAvailability": "Boolean",
     }
+```
+
+### Get Availability of product at specific zip info
+  * GET `/products/:id/availability/:zip`
+
+**Path Parameters:**
+  * `id` : product id
+  * `zip`: zip code
+
+
+**Success Status Code:** `200`
+
+**storeId = foreign key stores(id)**
+
+**productId = foreign key product(id)**
+
+**Returns:** JSON
+
+```json
+  [
+    {
+      "id": "Number",
+      "productId": "Number",
+      "storeId": "Number",
+      "storeZip": "Number",
+      "storeAvailability": "Boolean",
+    },
+    {
+      "id": "Number",
+      "productId": "Number",
+      "storeId": "Number",
+      "storeZip": "Number",
+      "storeAvailability": "Boolean",
+    }
+  ]
 ```
