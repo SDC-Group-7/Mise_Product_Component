@@ -24,7 +24,8 @@
       "themeImageUrl": "String",
       "featured": "String",
       "chokingHazard": "Boolean",
-      "productLimit": "Number"
+      "productLimit": "Number",
+      "productAvailabilityOnline": "Boolean",
     }
 ```
 
@@ -47,7 +48,8 @@
       "themeImageUrl": "String",
       "featured": "String",
       "chokingHazard": "Boolean",
-      "productLimit": "Number"
+      "productLimit": "Number",
+      "productAvailabilityOnline": "Boolean",
     }
 ```
 
@@ -83,3 +85,51 @@
   * `id` product id
 
 **Success Status Code:** `204`
+
+
+
+### Get store info
+  * GET `/store/:id`
+
+**Path Parameters:**
+  * `id` : store id
+
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "storeName": "String",
+      "storeAddress": "String",
+      "storeZip": "Number",
+      "productId": "Number",
+    }
+```
+
+### Get Availability info
+  * GET `/quantity/:id`
+
+**Path Parameters:**
+  * `id` : product id
+
+
+**Success Status Code:** `200`
+
+**storeId = foreign key stores(id)**
+
+**productId = foreign key product(id)**
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "productId": "Number",
+      "storeId": "Number",
+      "storeZip": "Number",
+      "storeAvailability": "Boolean",
+    }
+```

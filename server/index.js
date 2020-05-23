@@ -36,6 +36,7 @@ app.get('/product/:id/find-store', (req, res) => {
     } else if (!results.length) {
       res.status(404).send('Store not found');
     } else {
+      console.log(req.body);
       res.status(200).send(results);
     }
   });
