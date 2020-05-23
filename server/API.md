@@ -54,7 +54,7 @@
 ```
 
 
-### Update restaurant info
+### Update product info
   * PATCH `/product/:id`
 
 **Path Parameters:**
