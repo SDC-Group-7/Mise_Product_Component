@@ -23,8 +23,13 @@ CREATE TABLE stores (
   id INT NOT NULL AUTO_INCREMENT,
   storeName VARCHAR(255),
   storeAddress VARCHAR(255),
-  productId INT NOT NULL,
-  productAvailability BOOLEAN,
-  PRIMARY KEY (id),
-  FOREIGN KEY (productId) REFERENCES products(id)
+  storeZip INT,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE availabilities (
+  id INT AUTO_INCREMENT,
+  productId INT,
+  storeId INT,
+  inStoreAvailable BOOLEAN
 );

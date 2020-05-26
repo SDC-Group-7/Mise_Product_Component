@@ -58,7 +58,7 @@
   * PATCH `/product/:id`
 
 **Path Parameters:**
-  * `id` product id
+  * `id` : product id
 
 **Success Status Code:** `204`
 
@@ -83,7 +83,7 @@
   * DELETE `/product/:id`
 
 **Path Parameters:**
-  * `id` product id
+  * `id` : product id
 
 **Success Status Code:** `204`
 
@@ -111,7 +111,7 @@
 ```
 
 ### Get Availability info
-  * GET `/availability/:id`
+  * GET `/availabilities/:id`
 
 **Path Parameters:**
   * `id` : product id
@@ -145,11 +145,11 @@
 ```
 
 ### Get Availability of product at specific zip info
-  * GET `/products/:id/availability/:zip`
+  * GET `/products/:id/availabilities/:zip`
 
 **Path Parameters:**
   * `id` : product id
-  * `zip`: zip code
+  * `zip` : zip code
 
 
 **Success Status Code:** `200`
