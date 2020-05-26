@@ -1,5 +1,5 @@
 const {
-  mockStores, mockThemes, mockFeatured, mockNames,
+  mockStores, mockThemes, mockFeatured, mockNames, mockNamesTwo, mockBool,
 } = require('./exampleData.js');
 const {
   getRandomInt, getRandomRating, getRandomPrice, getRandomBoolean,

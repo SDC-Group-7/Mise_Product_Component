@@ -22,7 +22,6 @@ CREATE TABLE products (
 CREATE TABLE stores (
   id INT NOT NULL AUTO_INCREMENT,
   storeName VARCHAR(255),
-  storeAddress VARCHAR(255),
   storeZip INT,
   PRIMARY KEY (id)
 );
@@ -32,4 +31,7 @@ CREATE TABLE availabilities (
   productId INT,
   storeId INT,
   inStoreAvailable BOOLEAN
+  PRIMARY KEY (id)
+  FOREIGN KEY (productId) REFERENCES products(id)
+  FOREIGN KEY (storeId) REFERENCES stores(id)
 );
