@@ -8,7 +8,7 @@ const mockStores = require('./stores.js')
 
 const createStores = (max) => {
   const storeList = [];
-  let zipCounter = 67890;
+  let zipCounter = 57890;
   for (let i = 0; i < max; i += 1) {
     const storeNameV = mockStores[i].name;
     const storeIdV = i;
@@ -18,7 +18,7 @@ const createStores = (max) => {
       storeZip: zipCounter,
     };
     storeList.push(store);
-    zipCounter += 23;
+    zipCounter += 3;
   }
   return storeList;
 };
@@ -26,6 +26,7 @@ const createStores = (max) => {
 const createProducts = (max) => {
   const productList = [];
   for (let i = 1; i <= max; i += 1) {
+    let productId = i
     const name = mockNames[getRandomInt(0, mockNames.length - 1)];
     const price = getRandomPrice(10, 300);
     const reviewCount = getRandomInt(0, 100);

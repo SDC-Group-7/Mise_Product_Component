@@ -4,7 +4,7 @@ const { createStores, createProducts } = require('./helpers.js');
 
 const insertStores = (callback) => {
   const storeList = createStores(100);
-  const query = 'INSERT INTO stores (storeName, storeAddress, productId, productAvailability) VALUES ?';
+  const query = 'INSERT INTO stores (availabilityId, storeName, storeZip) VALUES ?';
   connection.query(query, [storeList], (err, result) => {
     if (err) {
       console.log(err);
