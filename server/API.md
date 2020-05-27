@@ -1,10 +1,10 @@
 ## SDC - Alex Mody - Server API
 
 ### Get product info
-  * GET `/product/:id`
+  * GET `/product/:productId`
 
 **Path Parameters:**
-  * `id` : product id
+  * `productId` : product id
 
 **Data contained:**
   * Returned object contains information on an individual product. This includes the name, price, reviews as well as the URL for the image of the product itself.
@@ -15,7 +15,7 @@
 
 ```json
     {
-      "id": "Number",
+      "productId": "Number",
       "productName": "String",
       "price": "Number",
       "reviewCount": "Number",
@@ -55,10 +55,10 @@
 
 
 ### Update product info
-  * PATCH `/product/:id`
+  * PATCH `/product/:productId`
 
 **Path Parameters:**
-  * `id` : product id
+  * `productId` : product id
 
 **Success Status Code:** `204`
 
@@ -80,20 +80,20 @@
 ```
 
 ### Delete product
-  * DELETE `/product/:id`
+  * DELETE `/product/:productId`
 
 **Path Parameters:**
-  * `id` : product id
+  * `productId` : product id
 
 **Success Status Code:** `204`
 
 
 
 ### Get store info
-  * GET `/store/:id`
+  * GET `/store/:storeId`
 
 **Path Parameters:**
-  * `id` : store id
+  * `storeId` : store id
 
 
 **Success Status Code:** `200`
@@ -102,19 +102,17 @@
 
 ```json
     {
-      "id": "Number",
+      "storeId": "Number",
       "storeName": "String",
-      "storeAddress": "String",
       "storeZip": "Number",
-      "productId": "Number",
     }
 ```
 
 ### Get Availability info
-  * GET `/availabilities/:id`
+  * GET `/products/:productId/availabilities`
 
 **Path Parameters:**
-  * `id` : product id
+  * `productId` : product id
 
 
 **Success Status Code:** `200`
@@ -126,29 +124,25 @@
 **Returns:** JSON
 
 ```json
-  [
-    {
-      "id": "Number",
-      "productId": "Number",
+  {
+    "productId": "Number",
+    "availabilities": [
+      {
+      "availabilityId": "Number",
       "storeId": "Number",
       "storeZip": "Number",
       "storeAvailability": "Boolean",
-    },
-    {
-      "id": "Number",
-      "productId": "Number",
-      "storeId": "Number",
-      "storeZip": "Number",
-      "storeAvailability": "Boolean",
-    },
-  ]
+      },
+      ...
+    ]
+  }
 ```
 
 ### Get Availability of product at specific zip info
-  * GET `/products/:id/availabilities/:zip`
+  * GET `/products/:productId/availabilities/:zip`
 
 **Path Parameters:**
-  * `id` : product id
+  * `productId` : product id
   * `zip` : zip code
 
 
@@ -162,7 +156,7 @@
 
 ```json
     {
-      "id": "Number",
+      "availabilityId": "Number",
       "productId": "Number",
       "storeId": "Number",
       "storeZip": "Number",

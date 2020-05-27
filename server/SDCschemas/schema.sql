@@ -5,7 +5,7 @@ CREATE DATABASE product_componentPG;
 USE product_componentPG;
 
 CREATE TABLE products (
-  id INT NOT NULL AUTO_INCREMENT,
+  productId INT NOT NULL AUTO_INCREMENT,
   productName VARCHAR(255),
   price FLOAT NOT NULL,
   reviewCount INT NOT NULL,
@@ -16,22 +16,22 @@ CREATE TABLE products (
   chokingHazard BOOLEAN,
   productLimit INT NOT NULL,
   productAvailabilityOnline BOOLEAN,
-  PRIMARY KEY(id)
+  PRIMARY KEY(productId)
 );
 
 CREATE TABLE stores (
-  id INT NOT NULL AUTO_INCREMENT,
+  storeId INT NOT NULL AUTO_INCREMENT,
   storeName VARCHAR(255),
   storeZip INT,
-  PRIMARY KEY (id)
+  PRIMARY KEY (storeId)
 );
 
 CREATE TABLE availabilities (
-  id INT AUTO_INCREMENT,
+  availabilityId INT AUTO_INCREMENT,
   productId INT,
   storeId INT,
   inStoreAvailable BOOLEAN
-  PRIMARY KEY (id)
-  FOREIGN KEY (productId) REFERENCES products(id)
-  FOREIGN KEY (storeId) REFERENCES stores(id)
+  PRIMARY KEY (availabilityId)
+  FOREIGN KEY (productId) REFERENCES products(productId)
+  FOREIGN KEY (storeId) REFERENCES stores(storeId)
 );
