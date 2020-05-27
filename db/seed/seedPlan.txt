@@ -1,0 +1,26 @@
+TOTAL_PRODUCTS = 10000000
+TOTAL_STORES = 1000
+NUMBER_OF_STORES_CARRYING_EACH_PRODUCT = 10
+PRODUCTS_PER_STORE = TOTAL_PRODUCTS / TOTAL_STORES * NUMBER_OF_STORES_CARRYING_EACH_PRODUCT
+
+generate products
+  x 1 csv file
+  - insert data from file into pg
+generate stores
+  - generate 1 csv file (no need to use the drain/write stream on this)
+  - insert data from file into pg
+generate availabilities
+  - make "generateAndWriteData" generic so you can use it for both products and availabilities
+  - figure out how to get the foreign keys to match up (for seed generation)
+      - every product should generate NUMBER_OF_STORES_CARRYING_EACH_PRODUCT (10) entries in availabilities
+  - figure out how to separate into 5 csv files
+  - remove foreign key constraints
+  - insert data into pg
+  - add constraints back on
+
+
+availabilities
+  - 10 csvs
+  - for product id 1
+    - at stores 1 - 10
+    - increment store until hit TOTAL_STORES and then reset to 1 and start over
