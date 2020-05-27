@@ -61,16 +61,7 @@ const dropProduct = () => {
 // STORE SCHEMA------------------------------------------------------
 
 const StoreSchema = mongoose.Schema({
-  productName: String,
-  price: Number,
-  reviewCount: Number,
-  rating: Number,
-  themeName: String,
-  themeImageUrl: String,
-  featured: String,
-  chokingHazard: Boolean,
-  productLimit: Number,
-  productAvailabilityOnline: Boolean,
+
 });
 
 const Store = mongoose.model('Stores', StoreSchema);
