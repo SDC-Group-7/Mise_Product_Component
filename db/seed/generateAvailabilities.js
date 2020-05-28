@@ -3,9 +3,11 @@
 */
 const fs = require('fs');
 const path = require('path');
+const _ = require('underscore');
+const { getRandomInt } = require('./randomizers');
 
 const AVAILS_FILE = path.join(__dirname, './csvData', 'availabilities.csv')
-const TOTAL_AVAILS = 100000000
+const TOTAL_AVAILS = 100000000;
 const BATCH_SIZE = 10000;
 
 
@@ -21,36 +23,31 @@ function* ArrayInfiniteGenerator(array) {
   }
 }
 
-const inventories = ArrayInfiniteGenerator(Array(40).fill(0).map(() =>
-  getRandomInt(1, 9)));
+const inventories = ArrayInfiniteGenerator(Array(40).fill(0).map(() => getRandomInt(1, 9)));
 
-
-let list = [];
-
-
-
-
-function generateAvailability(availabilityId) {
-
+function generateAvailability(startId, totalAvails) {
   let availabilitySet = [];
-  let proCounter = 1;
-  let stoCount = 1
-
-  function addBatch(productStart, storeStart)
-
-  for (let p = proCount; i < proCount + 10; i++) {
-    if ()
-
+  let proCount = 1;
+  let stoCount = 1;
+  let idCount = 1;
+  while (availabilitySet.length < totalAvails) {
+    for (let p = proCount; p < proCount + 10; p++) {
+      for (let s = stoCount; s < stoCount + 10; s++) {
+        let availability = {
+          availabilityId: idCount,
+          productId: p,
+          storeId: s,
+          inventory: inventories.next().value,
+        };
+        idCount++;
+        availabilitySet.push(availability);
+      }
+    }
+    proCount += 10;
+    stoCount += 10;
+    if (stoCount > 1000) {
+      stoCount = 1;
+    }
   }
-
-
-
-  const productId =
-  const storeId =
-  const inventory = inventories.next().value;
-
-}
-
-function generateAvailabilities() {
-
+  return availabilitySet;
 }

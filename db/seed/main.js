@@ -12,7 +12,9 @@ const STORES_FILE = path.join(__dirname, './csvData', 'stores.csv');
 const TOTAL_STORES = 1000;
 const STORE_IDSTART = 1;
 
-
+const AVAILS_FILE = path.join(__dirname, './csvData', 'availabilities.csv');
+const TOTAL_AVAILS = 100000000;
+const AVAILS_IDSTART = 1;
 
 /*
 TOTAL_PRODUCTS = 10000000
