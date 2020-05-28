@@ -1,11 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 const generateProducts = require('./generateProducts.js');
+const generateStores = require('./generateStores.js');
 
 const PRODUCTS_FILE = path.join(__dirname, './csvData', 'products.csv');
 const TOTAL_PRODUCTS = 10000000;
 const BATCH_SIZE = 1000;
 const LOG_FREQUENCY = 100000;
+
+const STORES_FILE = path.join(__dirname, './csvData', 'stores.csv');
+const TOTAL_STORES = 1000;
+const STORE_IDSTART = 1;
+
+
 
 /*
 TOTAL_PRODUCTS = 10000000
@@ -33,10 +40,19 @@ function convertToCsvLines(array) {
 
 function main() {
   const productWriter = fs.createWriteStream(PRODUCTS_FILE);
+  const storeWriter = fs.createWriteStream(STORES_FILE);
   generateAndWriteData(productWriter, () => {
     console.log('done?');
   });
+  const storeData = convertToCsvLines(generateStores(STORE_IDSTART, TOTAL_STORES));
+  storeWriter.write(storeData, 'utf8');
+  storeWriter.on('finish', () => {
+    console.log(TOTAL_STORES, 'converted to CSV');
+  });
+  storeWriter.end();
 }
+
+
 
 function generateAndWriteData(writer, callback) {
   let id = 1;
@@ -56,7 +72,6 @@ function generateAndWriteData(writer, callback) {
           console.log('WROTE BATCH:', id);
           lastLog = id;
         }
-
         // see if we should continue, or wait
         // don't pass the callback, because we're not done yet.
         ok = writer.write(batch, 'utf8');

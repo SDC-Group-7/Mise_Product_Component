@@ -1,11 +1,9 @@
-DROP DATABASE IF EXISTS product_componentPG;
+DROP DATABASE IF EXISTS sdctest;
 
-CREATE DATABASE product_componentPG;
-
-USE product_componentPG;
+CREATE DATABASE sdctest;
 
 CREATE TABLE products (
-  productId INT NOT NULL AUTO_INCREMENT,
+  productId INT,
   productName VARCHAR(255),
   price FLOAT NOT NULL,
   reviewCount INT NOT NULL,
@@ -20,18 +18,20 @@ CREATE TABLE products (
 );
 
 CREATE TABLE stores (
-  storeId INT NOT NULL AUTO_INCREMENT,
+  storeId INT,
   storeName VARCHAR(255),
   storeZip INT,
   PRIMARY KEY (storeId)
 );
 
 CREATE TABLE availabilities (
-  availabilityId INT AUTO_INCREMENT,
+  availabilityId INT,
   productId INT,
   storeId INT,
-  inStoreAvailable BOOLEAN
+  inventory SMALLINT,
   PRIMARY KEY (availabilityId)
   FOREIGN KEY (productId) REFERENCES products(productId)
   FOREIGN KEY (storeId) REFERENCES stores(storeId)
 );
+
+\c sdctest

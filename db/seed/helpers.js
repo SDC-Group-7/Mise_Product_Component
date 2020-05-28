@@ -4,7 +4,7 @@ const {
 const {
   getRandomInt, getRandomRating, getRandomPrice, getRandomBoolean,
 } = require('./randomizers');
-const mockStores = require('./stores.js')
+// const mockStores = require('./stores.js')
 
 const createStores = (max) => {
   const storeList = [];

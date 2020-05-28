@@ -1,6 +1,6 @@
-const mysql = require('mysql');
+const postgres = require('pg')
 
-const connection = mysql.createConnection({
+const connection = postgres.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
