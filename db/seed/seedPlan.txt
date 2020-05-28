@@ -7,7 +7,7 @@ generate products
   x 1 csv file
   - insert data from file into pg
 generate stores
-  - generate 1 csv file (no need to use the drain/write stream on this)
+  x generate 1 csv file (no need to use the drain/write stream on this)
   - insert data from file into pg
 generate availabilities
   - make "generateAndWriteData" generic so you can use it for both products and availabilities

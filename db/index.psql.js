@@ -1,11 +1,14 @@
-const postgres = require('pg')
+const { Client } = require('pg');
 
-const connection = postgres.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: 'product_component',
+const client = new Client({
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  host: "localhost",
+  port: 5432,
+  database: "sdctest"
 });
 
-connection.connect();
-module.exports.connection = connection;
+client.connect()
+  .then(() => console.log("Connected to Postgres"))
+  .catch(e => console.log(e))
+  .finally(() => client.end());

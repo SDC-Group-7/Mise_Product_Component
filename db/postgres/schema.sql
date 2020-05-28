@@ -2,36 +2,34 @@ DROP DATABASE IF EXISTS sdctest;
 
 CREATE DATABASE sdctest;
 
+\c sdctest
+
 CREATE TABLE products (
-  productId INT,
+  productId INT PRIMARY KEY,
   productName VARCHAR(255),
-  price FLOAT NOT NULL,
-  reviewCount INT NOT NULL,
-  rating FLOAT NOT NULL,
+  price FLOAT,
+  reviewCount INT,
+  rating FLOAT,
   themeName VARCHAR(255),
   themeImageUrl VARCHAR(255),
   featured VARCHAR(255),
   chokingHazard BOOLEAN,
-  productLimit INT NOT NULL,
-  productAvailabilityOnline BOOLEAN,
-  PRIMARY KEY(productId)
+  productLimit INT,
+  productAvailabilityOnline BOOLEAN
 );
 
 CREATE TABLE stores (
-  storeId INT,
+  storeId INT PRIMARY KEY,
   storeName VARCHAR(255),
-  storeZip INT,
-  PRIMARY KEY (storeId)
+  storeZip INT
 );
 
 CREATE TABLE availabilities (
-  availabilityId INT,
+  availabilityId INT PRIMARY KEY,
   productId INT,
   storeId INT,
-  inventory SMALLINT,
-  PRIMARY KEY (availabilityId)
-  FOREIGN KEY (productId) REFERENCES products(productId)
-  FOREIGN KEY (storeId) REFERENCES stores(storeId)
+  inventory SMALLINT
 );
 
-\c sdctest
+COPY products(productId, productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productAvailabilityOnline) FROM '/Users/akshajmody/Documents/Hack Reactor SF COHORT 127 /SDC FOLDER/ProductComponent/db/seed/csvData/products.csv' WITH DELIMITER ',';
+COPY stores(storeID, storeName, storeZip) FROM '/Users/akshajmody/Documents/Hack Reactor SF COHORT 127 /SDC FOLDER/ProductComponent/db/seed/csvData/stores.csv' WITH DELIMITER ',';
