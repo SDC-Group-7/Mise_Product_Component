@@ -53,7 +53,6 @@ function main() {
 }
 
 
-
 function generateAndWriteData(writer, callback) {
   let id = 1;
   let lastLog = 0;
