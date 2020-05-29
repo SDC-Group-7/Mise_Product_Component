@@ -77,6 +77,4 @@ function generateProducts(startId, batchSize) {
 }
 
 
-console.log(generateProducts(1, 100));
-
 module.exports = generateProducts;

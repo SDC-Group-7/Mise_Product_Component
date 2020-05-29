@@ -32,4 +32,7 @@ CREATE TABLE availabilities (
 );
 
 COPY products(productId, productName, price, reviewCount, rating, themeName, themeImageUrl, featured, chokingHazard, productLimit, productAvailabilityOnline) FROM '/Users/akshajmody/Documents/Hack Reactor SF COHORT 127 /SDC FOLDER/ProductComponent/db/seed/csvData/products.csv' WITH DELIMITER ',';
+
 COPY stores(storeID, storeName, storeZip) FROM '/Users/akshajmody/Documents/Hack Reactor SF COHORT 127 /SDC FOLDER/ProductComponent/db/seed/csvData/stores.csv' WITH DELIMITER ',';
+
+COPY availabilities(availabillityId, productId, storeId, inventory) FROM '/Users/akshajmody/Documents/Hack Reactor SF COHORT 127 /SDC FOLDER/ProductComponent/db/seed/csvData/availabilities.csv' WITH DELIMITER ',';

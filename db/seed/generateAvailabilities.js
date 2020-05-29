@@ -25,11 +25,11 @@ function* ArrayInfiniteGenerator(array) {
 
 const inventories = ArrayInfiniteGenerator(Array(40).fill(0).map(() => getRandomInt(1, 9)));
 
-function generateAvailability(startId, totalAvails) {
+function generateAvailabilities(startId, totalAvails, productStartId) {
   let availabilitySet = [];
-  let proCount = 1;
+  let proCount = productStartId;
   let stoCount = 1;
-  let idCount = 1;
+  let idCount = startId;
   while (availabilitySet.length < totalAvails) {
     for (let p = proCount; p < proCount + 10; p++) {
       for (let s = stoCount; s < stoCount + 10; s++) {
@@ -51,3 +51,6 @@ function generateAvailability(startId, totalAvails) {
   }
   return availabilitySet;
 }
+
+
+module.exports = generateAvailabilities;

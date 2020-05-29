@@ -2,10 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const generateProducts = require('./generateProducts.js');
 const generateStores = require('./generateStores.js');
+const generateAvailabilities = require('./generateAvailabilities');
 
 const PRODUCTS_FILE = path.join(__dirname, './csvData', 'products.csv');
 const TOTAL_PRODUCTS = 10000000;
-const BATCH_SIZE = 1000;
+const BATCH_SIZE = 10000;
 const LOG_FREQUENCY = 100000;
 
 const STORES_FILE = path.join(__dirname, './csvData', 'stores.csv');
@@ -14,26 +15,7 @@ const STORE_IDSTART = 1;
 
 const AVAILS_FILE = path.join(__dirname, './csvData', 'availabilities.csv');
 const TOTAL_AVAILS = 100000000;
-const AVAILS_IDSTART = 1;
 
-/*
-TOTAL_PRODUCTS = 10000000
-TOTAL_STORES = 1000
-NUMBER_OF_STORES_CARRYING_EACH_PRODUCT = 10
-PRODUCTS_PER_STORE = TOTAL_PRODUCTS / TOTAL_STORES * NUMBER_OF_STORES_CARRYING_EACH_PRODUCT
-
-generate stores
-  - one csv
-generate products
-  - 10 products csvs
-  - every product should generate NUMBER_OF_STORES_CARRYING_EACH_PRODUCT entries in availability
-
-availabilities
-  - 10 csvs
-  - for product id 1
-    - at stores 1 - 10
-    - increment store until hit TOTAL_STORES and then reset to 1 and start over
-*/
 function convertToCsvLines(array) {
   const csvLines = array.map((obj) => Object.values(obj).join(','));
   csvLines.push(''); // necessary to add newline character to end of batch
@@ -43,9 +25,16 @@ function convertToCsvLines(array) {
 function main() {
   const productWriter = fs.createWriteStream(PRODUCTS_FILE);
   const storeWriter = fs.createWriteStream(STORES_FILE);
+  const availabilityWriter = fs.createWriteStream(AVAILS_FILE);
+
   generateAndWriteData(productWriter, () => {
-    console.log('done?');
-  });
+    console.log('Product done');
+  }, TOTAL_PRODUCTS, generateProducts);
+
+  generateAndWriteData(availabilityWriter, () => {
+    console.log('Product done');
+  }, TOTAL_AVAILS, generateAvailabilities);
+
   const storeData = convertToCsvLines(generateStores(STORE_IDSTART, TOTAL_STORES));
   storeWriter.write(storeData, 'utf8');
   storeWriter.on('finish', () => {
@@ -55,18 +44,20 @@ function main() {
 }
 
 
-function generateAndWriteData(writer, callback) {
+function generateAndWriteData(writer, callback, totalVar, generate) {
   let id = 1;
+  let proStart = 1;
   let lastLog = 0;
   let batch;
 
   function write() {
     let ok = true;
-    while (id <= TOTAL_PRODUCTS && ok) {
-      batch = convertToCsvLines(generateProducts(id, BATCH_SIZE));
+    while (id <= totalVar && ok) {
+      batch = convertToCsvLines(generate(id, BATCH_SIZE, proStart));
       id += BATCH_SIZE;
+      proStart += 1000;
 
-      if (id === TOTAL_PRODUCTS) {
+      if (id === totalVar) {
         writer.write(batch, 'utf8', callback);
       } else {
         if (id - lastLog > LOG_FREQUENCY) {
@@ -78,7 +69,7 @@ function generateAndWriteData(writer, callback) {
         ok = writer.write(batch, 'utf8');
       }
     }
-    if (id <= TOTAL_PRODUCTS) {
+    if (id <= totalVar) {
       // had to stop early!
       // write some more once it drains
       writer.once('drain', write);
