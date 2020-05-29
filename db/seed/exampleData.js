@@ -114,22 +114,8 @@ const names = [
   '21st Century Museum',
 ];
 
-
-const namesTwo = [
-  'Eco-Friendly Polymer',
-  'Regular ABS Polymer',
-  'Premium Reinforced ABS Polymer',
-  'Recycled ABS Polymers',
-];
-
-const availableFlag = [
-  0, 1,
-];
-
 module.exports = {
   mockThemes: themes,
   mockFeatured: featured,
   mockNames: names,
-  mockNamesTwo: namesTwo,
-  mockBool: availableFlag,
 };

@@ -1,26 +1,32 @@
 const {
-  mockStores, mockThemes, mockFeatured, mockNames,
+  mockThemes, mockFeatured, mockNames, mockNamesTwo, mockBool
 } = require('./exampleData.js');
 const {
   getRandomInt, getRandomRating, getRandomPrice, getRandomBoolean,
 } = require('./randomizers');
+// const mockStores = require('./stores.js')
 
-const createStoreInventory = (max) => {
+const createStores = (max) => {
   const storeList = [];
-  for (let i = 0; i < mockStores.length; i += 1) {
-    const { name, address } = mockStores[i];
-    for (let j = 1; j <= max; j += 1) {
-      const productId = j;
-      const store = [name, address, productId, getRandomBoolean()];
-      storeList.push(store);
-    }
+  let zipCounter = 57890;
+  for (let i = 0; i < max; i += 1) {
+    const storeNameV = mockStores[i].name;
+    const storeIdV = i;
+    const store = {
+      storeId: storeIdV,
+      storeName: storeNameV,
+      storeZip: zipCounter,
+    };
+    storeList.push(store);
+    zipCounter += 3;
   }
   return storeList;
 };
 
-const createRandomProducts = (max) => {
+const createProducts = (max) => {
   const productList = [];
   for (let i = 1; i <= max; i += 1) {
+    let productId = i
     const name = mockNames[getRandomInt(0, mockNames.length - 1)];
     const price = getRandomPrice(10, 300);
     const reviewCount = getRandomInt(0, 100);
@@ -51,6 +57,6 @@ const createRandomProducts = (max) => {
 };
 
 module.exports = {
-  createStoreInventory,
-  createRandomProducts,
+  createStores,
+  createProducts,
 };

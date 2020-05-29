@@ -1,4 +1,3 @@
-## SDC - Alex Mody - Server API
 
 ### Get product info
   * GET `/product/:productId`

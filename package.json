@@ -10,6 +10,8 @@
   "scripts": {
     "seed-db": "node ./seeder/seedingScript.js",
     "reset-db": "mysql -u root -p <schema.sql",
+    "csvgen": "node ./db/seed/main.js",
+    "sdcrunpsql": "psql -d sdctest -a -f ./db/postgres/schema.sql",
     "start-server": "nodemon ./server/index.js",
     "test": "NODE_ENV=test jest --watchAll",
     "ci-test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
@@ -25,6 +27,7 @@
     "mongoose": "^5.9.15",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
+    "pg": "^8.2.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
