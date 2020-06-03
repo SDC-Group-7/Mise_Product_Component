@@ -1,4 +1,4 @@
-const { connection } = require('../db/index.js');
+const connection = require('../db/index.psql.js');
 
 const getProductData = (id, callback) => {
   const query = `SELECT * FROM products WHERE id=${id}`;
