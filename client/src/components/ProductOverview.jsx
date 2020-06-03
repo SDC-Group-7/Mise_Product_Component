@@ -60,7 +60,6 @@ const ProductOverview = () => {
       <ReviewContainer
         reviewCount={reviewCount}
         rating={rating}
-        productImageUrl={productImageUrl}
       />
       {chokingHazard ? <SafetyWarning /> : null}
       <ProductPrice>{`$${price}`}</ProductPrice>
