@@ -17,24 +17,23 @@ const ProductOverview = () => {
   const [productData, setProductData] = useState({});
   const randomProductId = Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1) + 1)) + 1;
   const {
-    id,
-    productName,
+    productid,
+    productname,
     price,
-    reviewCount,
+    reviewcount,
     rating,
-    themeName,
-    themeImageUrl,
+    themename,
+    themeimageurl,
     featured,
-    chokingHazard,
-    productLimit,
-    productImageUrl,
-    productAvailabilityOnline,
+    chokinghazard,
+    productlimit,
+    productavailabilityonline,
   } = productData;
 
   useEffect(() => {
     getProduct(randomProductId)
       .then(({ data }) => {
-        setProductData(data[0]);
+        setProductData(data.rows[0]);
       })
       .catch((error) => {
         throw new Error(error);
@@ -51,23 +50,23 @@ const ProductOverview = () => {
         </BadgeContainer>
       </BadgeWrapper>
       <ThemeImage
-        src={themeImageUrl}
+        src={themeimageurl}
         alt=""
       />
       <Spacer />
-      <ProductName>{productName}</ProductName>
+      <ProductName>{productname}</ProductName>
       <Spacer />
       <ReviewContainer
-        reviewCount={reviewCount}
+        reviewCount={reviewcount}
         rating={rating}
       />
-      {chokingHazard ? <SafetyWarning /> : null}
+      {chokinghazard ? <SafetyWarning /> : null}
       <ProductPrice>{`$${price}`}</ProductPrice>
       <TabList
-        productLimit={productLimit}
-        productAvailabilityOnline={productAvailabilityOnline}
-        themeName={themeName}
-        productId={id}
+        productLimit={productlimit}
+        productAvailabilityOnline={productavailabilityonline}
+        themeName={themename}
+        productId={productid}
       />
     </Container>
   );

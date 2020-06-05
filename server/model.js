@@ -1,9 +1,17 @@
-const connection = require('../db/index.psql.js');
+const Pool = require('pg').Pool;
+
+const pool = new Pool({
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  host: "localhost",
+  port: 5432,
+  database: "sdctest"
+});
 
 const getProductData = (id, callback) => {
-  const query = `SELECT * FROM products WHERE id=${id}`;
+  const query = `SELECT * FROM products WHERE productId=${id}`;
 
-  connection.query(query, (err, results) => {
+  pool.query(query, (err, results) => {
     if (err) {
       callback(err);
     }
@@ -14,7 +22,7 @@ const getProductData = (id, callback) => {
 const getStoreData = (id, searchQuery, callback) => {
   const query = `SELECT * FROM stores WHERE (productId=${id} AND storeAddress LIKE '%${searchQuery}%')`;
 
-  connection.query(query, (err, results) => {
+  pool.query(query, (err, results) => {
     if (err) {
       callback(err);
     }
