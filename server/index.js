@@ -1,3 +1,4 @@
+require('newrelic');
 /* eslint-disable no-console */
 const express = require('express');
 const { getProduct, getStores } = require('./controller.js');
@@ -20,7 +21,7 @@ app.get('/product/:id', (req, res) => {
   getProduct(req.params.id, (err, results) => {
     if (err) {
       res.status(500).send(err);
-    } else if (!results.length) {
+    } else if (!results.rows) {
       res.status(404).send('Oops! Product not found!');
     } else {
       res.status(200).send(results);
