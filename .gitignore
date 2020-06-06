@@ -33,6 +33,8 @@ options.env
 # bundle
 bundle.js*
 
+# environment variables
+.env
 
 #docker bash script
 docker.bash
