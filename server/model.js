@@ -7,6 +7,11 @@ const pool = new Pool({
   database: 'sdctest',
 });
 
+pool.connect((err) => {
+  if (err) return console.error(err);
+  return console.log('Connected to postgres db at:', process.env.PG_HOST || 'localhost');
+});
+
 const getProductData = (id, callback) => {
   const query = `SELECT * FROM products WHERE productId=${id}`;
 
