@@ -12,10 +12,11 @@
     "db:init": "psql -d sdctest -a -f ./db/postgres/schema.sql",
     "test": "NODE_ENV=test jest --watchAll",
     "ci:test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
-    "start:dev": "nodemon ./server/index.js",
-    "start:prod": "node ./server/index.js",
+    "start:dev": "NODE_ENV=dev nodemon ./server/index.js",
+    "start:prod": "NODE_ENV=production node ./server/index.js",
     "build:dev": "npx webpack -w --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "build:prod": "webpack --config webpack.prod.js",
+    "stresstest": "k6 run --vus 100 --duration 30s ./db/seed/script.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -25,6 +26,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.15",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "newrelic": "^6.8.0",
     "nodemon": "^2.0.4",
