@@ -13,8 +13,9 @@
     "test": "NODE_ENV=test jest --watchAll",
     "ci:test": "jest ./__tests__ --testPathIgnorePatterns ./server --ci -i --detectOpenHandles --forceExit",
     "start:dev": "nodemon ./server/index.js",
-    "start:prod": "webpack --config webpack.prod.js && node ./server/index.js",
-    "build:dev": "npx webpack -w --config webpack.dev.js"
+    "start:prod": "node ./server/index.js",
+    "build:dev": "npx webpack -w --config webpack.dev.js",
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
