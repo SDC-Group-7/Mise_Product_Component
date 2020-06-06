@@ -1,11 +1,10 @@
 const Pool = require('pg').Pool;
 
 const pool = new Pool({
-  user: process.env.PGUSER,
-  password: process.env.PGPASSWORD,
-  host: "localhost",
-  port: 5432,
-  database: "sdctest"
+  user: process.env.PG_USER || 'akshajmody',
+  password: process.env.PG_PASSWORD || '',
+  host: process.env.PG_HOST || 'localhost',
+  database: 'sdctest',
 });
 
 const getProductData = (id, callback) => {
@@ -20,7 +19,7 @@ const getProductData = (id, callback) => {
 };
 
 const getStoreData = (id, searchQuery, callback) => {
-  const query = `SELECT * FROM stores WHERE (productId=${id} AND storeAddress LIKE '%${searchQuery}%')`;
+  const query = `SELECT * FROM availabilities WHERE (productId=${id} AND storeId=(SELECT storeId FROM stores WHERE storeZip=${searchQuery}))`;
 
   pool.query(query, (err, results) => {
     if (err) {
