@@ -10,7 +10,7 @@ const { getProduct, getStores } = require('./controller.js');
 const app = express();
 const PORT = process.env.NODE_PORT || 3002;
 
-app.use(morgan('dev'));
+app.use(morgan('short'));
 app.use(express.static('public'));
 app.use(express.json());
 // app.use((req, res, next) => {
