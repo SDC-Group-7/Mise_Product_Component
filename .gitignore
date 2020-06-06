@@ -31,7 +31,8 @@ dist/
 .envrc
 options.env
 # bundle
-bundle.js
+bundle.js*
+
 
 #docker bash script
 docker.bash
