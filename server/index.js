@@ -21,7 +21,6 @@ app.use(express.json());
 
 app.get('/product/:id', (req, res) => {
   getProduct(req.params.id, (err, results) => {
-    console.log(req.params.id, results);
     if (err) {
       res.status(500).send(err);
     } else if (!results.rows) {
