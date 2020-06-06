@@ -16,7 +16,8 @@
     "start:prod": "nohup node ./server/index.js &",
     "build:dev": "npx webpack -w --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
-    "stresstest": "k6 run --vus 100 --duration 30s ./db/seed/script.js"
+    "stresstest": "k6 run --vus 600 --duration 30s ./db/seed/script.js",
+    "stop": "killall node"
   },
   "dependencies": {
     "axios": "^0.19.2",
