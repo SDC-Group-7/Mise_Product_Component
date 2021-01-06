@@ -20,7 +20,7 @@
     "stop": "killall node"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "concurrently": "^5.2.0",
     "csv-write-stream": "^2.0.0",
     "csv-writer": "^1.6.0",
